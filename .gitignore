@@ -1,0 +1,11 @@
+cache.json
+org_indexes/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.faiss
+*.pkl
+.env
+sample_docs/hospital_records/
+sample_docs/finance_records_indexed/
+sample_docs/legal_records_indexed/

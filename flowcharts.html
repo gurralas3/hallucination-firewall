@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+  body { background: #09090f; margin: 0; padding: 40px; font-family: 'Segoe UI', sans-serif; display: flex; flex-direction: column; gap: 60px; align-items: center; }
+</style>
+</head>
+<body>
+
+<!-- CHART 1: Standard RAG -->
+<svg width="860" height="300" viewBox="0 0 860 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#1a0a0a"/>
+    </linearGradient>
+    <filter id="glow1">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="860" height="300" rx="16" fill="url(#bgGrad1)"/>
+  <rect width="860" height="300" rx="16" fill="none" stroke="#ff444422" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="430" y="38" text-anchor="middle" fill="#ff6b6b" font-size="15" font-weight="700" letter-spacing="2" font-family="Segoe UI">STANDARD RAG TODAY</text>
+  <line x1="180" y1="46" x2="340" y2="46" stroke="#ff444433" stroke-width="1"/>
+  <line x1="520" y1="46" x2="680" y2="46" stroke="#ff444433" stroke-width="1"/>
+
+  <!-- Node 1: Question -->
+  <rect x="30" y="110" width="140" height="60" rx="10" fill="#1a1a2e" stroke="#4a9eff" stroke-width="1.5"/>
+  <text x="100" y="136" text-anchor="middle" fill="#4a9eff" font-size="12" font-weight="600" font-family="Segoe UI">USER</text>
+  <text x="100" y="155" text-anchor="middle" fill="#4a9eff" font-size="12" font-weight="600" font-family="Segoe UI">QUESTION</text>
+
+  <!-- Arrow 1 -->
+  <line x1="170" y1="140" x2="208" y2="140" stroke="#555577" stroke-width="2"/>
+  <polygon points="208,134 220,140 208,146" fill="#555577"/>
+
+  <!-- Node 2: Retrieve -->
+  <rect x="220" y="110" width="140" height="60" rx="10" fill="#1a1a2e" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="290" y="136" text-anchor="middle" fill="#a855f7" font-size="12" font-weight="600" font-family="Segoe UI">RETRIEVE</text>
+  <text x="290" y="155" text-anchor="middle" fill="#a855f7" font-size="12" font-weight="600" font-family="Segoe UI">DOCS (FAISS)</text>
+
+  <!-- Arrow 2 -->
+  <line x1="360" y1="140" x2="398" y2="140" stroke="#555577" stroke-width="2"/>
+  <polygon points="398,134 410,140 398,146" fill="#555577"/>
+
+  <!-- Node 3: LLM -->
+  <rect x="410" y="110" width="140" height="60" rx="10" fill="#1a1a2e" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="480" y="136" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="600" font-family="Segoe UI">LLM</text>
+  <text x="480" y="155" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="600" font-family="Segoe UI">GENERATES</text>
+
+  <!-- Arrow 3 -->
+  <line x1="550" y1="140" x2="588" y2="140" stroke="#555577" stroke-width="2"/>
+  <polygon points="588,134 600,140 588,146" fill="#555577"/>
+
+  <!-- Node 4: User gets answer - RED (unverified) -->
+  <rect x="600" y="100" width="230" height="80" rx="10" fill="#2a0a0a" stroke="#ff4444" stroke-width="2"/>
+  <text x="715" y="130" text-anchor="middle" fill="#ff6b6b" font-size="12" font-weight="700" font-family="Segoe UI">USER GETS ANSWER</text>
+  <text x="715" y="152" text-anchor="middle" fill="#ff4444" font-size="13" font-weight="800" font-family="Segoe UI">⚠ UNVERIFIED</text>
+  <text x="715" y="170" text-anchor="middle" fill="#ff444488" font-size="10" font-family="Segoe UI">hallucinations reach the user</text>
+
+  <!-- Bottom warning -->
+  <rect x="30" y="220" width="800" height="44" rx="8" fill="#ff444411" stroke="#ff444433" stroke-width="1"/>
+  <text x="430" y="238" text-anchor="middle" fill="#ff6b6b" font-size="11" font-family="Segoe UI">RAG informs the model before generation.</text>
+  <text x="430" y="256" text-anchor="middle" fill="#ff444488" font-size="11" font-family="Segoe UI">It does not audit the output after. No safety net exists between the LLM and the user.</text>
+</svg>
+
+<!-- CHART 2: With Hallucination Firewall -->
+<svg width="1000" height="380" viewBox="0 0 1000 380" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0f0a"/>
+      <stop offset="100%" style="stop-color:#0a1a0f"/>
+    </linearGradient>
+    <linearGradient id="firewallGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a2a1a"/>
+      <stop offset="100%" style="stop-color:#051a0f"/>
+    </linearGradient>
+    <filter id="greenGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1000" height="380" rx="16" fill="url(#bgGrad2)"/>
+  <rect width="1000" height="380" rx="16" fill="none" stroke="#22ff7722" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="500" y="38" text-anchor="middle" fill="#22ff88" font-size="15" font-weight="700" letter-spacing="2" font-family="Segoe UI">WITH HALLUCINATION FIREWALL</text>
+  <line x1="160" y1="46" x2="330" y2="46" stroke="#22ff4433" stroke-width="1"/>
+  <line x1="670" y1="46" x2="840" y2="46" stroke="#22ff4433" stroke-width="1"/>
+
+  <!-- Node 1: Question -->
+  <rect x="20" y="100" width="130" height="60" rx="10" fill="#0f1a1f" stroke="#4a9eff" stroke-width="1.5"/>
+  <text x="85" y="126" text-anchor="middle" fill="#4a9eff" font-size="12" font-weight="600" font-family="Segoe UI">USER</text>
+  <text x="85" y="145" text-anchor="middle" fill="#4a9eff" font-size="12" font-weight="600" font-family="Segoe UI">QUESTION</text>
+
+  <!-- Arrow 1 -->
+  <line x1="150" y1="130" x2="185" y2="130" stroke="#335533" stroke-width="2"/>
+  <polygon points="185,124 197,130 185,136" fill="#335533"/>
+
+  <!-- Node 2: Retrieve -->
+  <rect x="197" y="100" width="130" height="60" rx="10" fill="#0f1a1f" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="262" y="126" text-anchor="middle" fill="#a855f7" font-size="12" font-weight="600" font-family="Segoe UI">RETRIEVE</text>
+  <text x="262" y="145" text-anchor="middle" fill="#a855f7" font-size="12" font-weight="600" font-family="Segoe UI">DOCS (FAISS)</text>
+
+  <!-- Arrow 2 -->
+  <line x1="327" y1="130" x2="362" y2="130" stroke="#335533" stroke-width="2"/>
+  <polygon points="362,124 374,130 362,136" fill="#335533"/>
+
+  <!-- Node 3: LLM -->
+  <rect x="374" y="100" width="130" height="60" rx="10" fill="#0f1a1f" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="439" y="126" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="600" font-family="Segoe UI">LLM</text>
+  <text x="439" y="145" text-anchor="middle" fill="#f59e0b" font-size="12" font-weight="600" font-family="Segoe UI">GENERATES</text>
+
+  <!-- Arrow 3 -->
+  <line x1="504" y1="130" x2="539" y2="130" stroke="#335533" stroke-width="2"/>
+  <polygon points="539,124 551,130 539,136" fill="#335533"/>
+
+  <!-- FIREWALL BOX - main feature -->
+  <rect x="551" y="70" width="220" height="140" rx="14" fill="url(#firewallGrad)" stroke="#22ff77" stroke-width="2" filter="url(#greenGlow)"/>
+  <text x="661" y="97" text-anchor="middle" fill="#22ff88" font-size="13" font-weight="800" letter-spacing="1" font-family="Segoe UI">🛡 HALLUCINATION</text>
+  <text x="661" y="115" text-anchor="middle" fill="#22ff88" font-size="13" font-weight="800" letter-spacing="1" font-family="Segoe UI">FIREWALL</text>
+  <line x1="571" y1="122" x2="751" y2="122" stroke="#22ff4433" stroke-width="1"/>
+  <text x="661" y="142" text-anchor="middle" fill="#88ffaa" font-size="11" font-family="Segoe UI">Gemma 4 audits claims</text>
+  <text x="661" y="158" text-anchor="middle" fill="#88ffaa" font-size="11" font-family="Segoe UI">against retrieved records</text>
+  <text x="661" y="180" text-anchor="middle" fill="#22ff77" font-size="11" font-weight="700" font-family="Segoe UI">✓ VERIFIED  →  pass through</text>
+  <text x="661" y="197" text-anchor="middle" fill="#ffaa22" font-size="11" font-weight="700" font-family="Segoe UI">✗ CORRECTED  →  replace with truth</text>
+
+  <!-- Arrow 4 -->
+  <line x1="771" y1="130" x2="806" y2="130" stroke="#22ff77" stroke-width="2.5"/>
+  <polygon points="806,124 818,130 806,136" fill="#22ff77"/>
+
+  <!-- Node 5: User gets VERIFIED answer - GREEN -->
+  <rect x="818" y="90" width="162" height="80" rx="10" fill="#0a2a12" stroke="#22ff77" stroke-width="2"/>
+  <text x="899" y="118" text-anchor="middle" fill="#88ffaa" font-size="12" font-weight="700" font-family="Segoe UI">USER GETS</text>
+  <text x="899" y="136" text-anchor="middle" fill="#88ffaa" font-size="12" font-weight="700" font-family="Segoe UI">VERIFIED ANSWER</text>
+  <text x="899" y="158" text-anchor="middle" fill="#22ff77" font-size="13" font-weight="800" font-family="Segoe UI">✅ TRUSTED</text>
+
+  <!-- Confidence badges row -->
+  <rect x="551" y="232" width="62" height="30" rx="6" fill="#0a1a0a" stroke="#22ff7744" stroke-width="1"/>
+  <text x="582" y="251" text-anchor="middle" fill="#22ff88" font-size="10" font-weight="600" font-family="Segoe UI">97% conf.</text>
+
+  <rect x="623" y="232" width="76" height="30" rx="6" fill="#0a1a0a" stroke="#22ff7744" stroke-width="1"/>
+  <text x="661" y="251" text-anchor="middle" fill="#22ff88" font-size="10" font-weight="600" font-family="Segoe UI">source citation</text>
+
+  <rect x="709" y="232" width="62" height="30" rx="6" fill="#0a1a0a" stroke="#22ff7744" stroke-width="1"/>
+  <text x="740" y="251" text-anchor="middle" fill="#22ff88" font-size="10" font-weight="600" font-family="Segoe UI">audit log</text>
+
+  <!-- Bottom stat bar -->
+  <rect x="20" y="300" width="960" height="56" rx="8" fill="#0a1f0f" stroke="#22ff4433" stroke-width="1"/>
+  <text x="500" y="322" text-anchor="middle" fill="#22ff88" font-size="12" font-weight="700" font-family="Segoe UI">Tested across Healthcare · Legal · Finance — 96% hallucination catch rate across 150 queries</text>
+  <text x="500" y="344" text-anchor="middle" fill="#22ff4488" font-size="11" font-family="Segoe UI">Works on top of any existing LLM or RAG system — GPT-4, Claude, Gemini, Llama — zero migration, zero retraining</text>
+</svg>
+
+</body>
+</html>

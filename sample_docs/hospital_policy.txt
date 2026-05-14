@@ -1,0 +1,25 @@
+CLINICAL GUIDELINES — St. Mary's Private Hospital
+
+Metformin Usage Guidelines:
+Metformin is strictly contraindicated in patients with severe renal failure (eGFR below 30 mL/min/1.73m2).
+Risk of lactic acidosis increases significantly with renal impairment and can be life-threatening.
+For patients with mild to moderate kidney disease (eGFR 30-60), metformin may be used with dose reduction and close monitoring.
+Metformin should be discontinued if eGFR drops below 30 at any point during treatment.
+
+Metformin Dosing:
+Standard starting dose is 500mg once or twice daily with meals.
+Dose should be increased gradually over several weeks based on tolerance.
+Maximum recommended daily dose is 2000mg to 2550mg depending on formulation.
+Starting directly at 2000mg is not recommended and may cause severe gastrointestinal side effects.
+
+Ibuprofen Usage Guidelines:
+Maximum safe dose of ibuprofen for adults is 400mg per dose, up to 1200mg per day for over-the-counter use.
+Ibuprofen should always be taken with food or milk to reduce risk of gastric irritation.
+Long-term use increases risk of gastric bleeding and ulcers.
+Ibuprofen is contraindicated in patients with active peptic ulcers or severe renal impairment.
+
+Blood Sugar Guidelines:
+Normal fasting blood glucose is below 100 mg/dL.
+Prediabetes is diagnosed when fasting glucose is between 100 and 125 mg/dL.
+Diabetes is diagnosed when fasting glucose is 126 mg/dL or above on two separate tests.
+A single fasting blood sugar of 200 mg/dL or above with symptoms may also indicate diabetes.
