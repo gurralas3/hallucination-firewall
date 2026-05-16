@@ -1,0 +1,7 @@
+MEDICINE: Albendazole
+CATEGORY: Anthelmintic
+INDICATIONS: Intestinal worms — roundworm, hookworm, whipworm, pinworm. Giardia. Tapeworm.
+ADULT DOSE: 400mg single dose for most intestinal worms.
+CHILD DOSE (over 2 years): 400mg single dose. Under 2 years: 200mg single dose.
+CONTRAINDICATIONS: Under 1 year. Pregnancy (first trimester).
+NOTES: Mass drug administration in school-age children recommended by WHO in endemic areas. Take with fatty food.

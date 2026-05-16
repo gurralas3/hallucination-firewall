@@ -1,0 +1,8 @@
+MEDICINE: Atropine
+CATEGORY: Emergency / Anticholinergic
+INDICATIONS: Bradycardia. Organophosphate poisoning. Premedication before anaesthesia.
+ADULT DOSE (bradycardia): 0.5–1mg IV. Repeat every 3–5 minutes. Maximum 3mg.
+CHILD DOSE (bradycardia): 0.02mg/kg IV. Minimum 0.1mg. Maximum 0.5mg single dose.
+ORGANOPHOSPHATE: 2–4mg IV every 5–10 minutes until secretions dry.
+CONTRAINDICATIONS: Glaucoma. Myasthenia gravis. Urinary retention.
+NOTES: Organophosphate poisoning requires very high doses — 2–4mg every few minutes until atropinised.

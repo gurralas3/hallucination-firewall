@@ -1,0 +1,6 @@
+MEDICINE: Chlorhexidine (7.1% solution)
+CATEGORY: Antiseptic
+INDICATIONS: Umbilical cord care in newborns to prevent omphalitis and neonatal sepsis.
+DOSE: Apply once daily to umbilical stump for 7 days after birth.
+CONTRAINDICATIONS: Known allergy to chlorhexidine.
+NOTES: WHO-recommended for cord care in high neonatal mortality settings. Reduces neonatal deaths from cord infection.

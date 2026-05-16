@@ -1,0 +1,8 @@
+MEDICINE: Paracetamol (Acetaminophen)
+CATEGORY: Analgesic / Antipyretic
+INDICATIONS: Mild to moderate pain, fever.
+ADULT DOSE: 500–1000mg every 4–6 hours. Maximum 4000mg per day (4g).
+CHILD DOSE: 10–15mg/kg every 4–6 hours. Maximum 5 doses per 24 hours. Do not exceed 60mg/kg/day.
+CHILD DOSE (by weight): 5kg = 75mg. 10kg = 150mg. 15kg = 225mg. 20kg = 300mg. Per dose.
+CONTRAINDICATIONS: Severe liver disease. Do not combine with other paracetamol-containing products.
+NOTES: Most common cause of acute liver failure in overdose. Never exceed recommended dose.

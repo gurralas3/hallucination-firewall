@@ -1,0 +1,7 @@
+MEDICINE: Lamivudine (3TC)
+CATEGORY: Antiretroviral
+INDICATIONS: HIV treatment (combination regimen). Hepatitis B.
+ADULT DOSE: HIV: 150mg twice daily or 300mg once daily.
+CHILD DOSE: 4mg/kg twice daily (maximum 150mg per dose).
+CONTRAINDICATIONS: Known hypersensitivity.
+NOTES: Well-tolerated. Core component of most WHO first-line HIV regimens. Also active against Hepatitis B.

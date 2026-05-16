@@ -12,8 +12,8 @@ from firewall import stream_llm_answer, verify_answer, _load_cache
 from gemini_client import active_backend
 
 st.set_page_config(
-    page_title="Hallucination Firewall",
-    page_icon="🔒",
+    page_title="DoseGuard — WHO Medicine Verification",
+    page_icon="💊",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -123,6 +123,55 @@ html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
     border-radius: 20px;
     font-size: 0.78rem;
     font-weight: 600;
+}
+.escalate-banner {
+    background: linear-gradient(135deg, rgba(245,158,11,0.18), rgba(217,119,6,0.12));
+    border: 2px solid rgba(245,158,11,0.5);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin: 10px 0;
+    text-align: center;
+}
+.escalate-banner-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fbbf24;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+}
+.escalate-banner-sub {
+    font-size: 0.87rem;
+    color: #fcd34d;
+    opacity: 0.85;
+}
+.disclaimer {
+    background: rgba(100,116,139,0.07);
+    border: 1px solid rgba(100,116,139,0.2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 0.74rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-top: 12px;
+}
+.mode-pill {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-right: 6px;
+}
+.mode-quick {
+    background: rgba(99,102,241,0.15);
+    border: 1px solid rgba(99,102,241,0.4);
+    color: #a5b4fc;
+}
+.mode-clinical {
+    background: rgba(249,115,22,0.15);
+    border: 1px solid rgba(249,115,22,0.4);
+    color: #fdba74;
 }
 
 /* ── Answer cards ── */
@@ -438,21 +487,27 @@ def _render_result(result: dict, llm_answer: str):
 
     else:
         st.markdown(f"""
-        <div class="answer-card">
+        <div class="escalate-banner">
+            <div class="escalate-banner-title">⚠ UNVERIFIABLE — ESCALATE TO CLINICIAN</div>
+            <div class="escalate-banner-sub">DoseGuard could not find a WHO record to verify this answer.<br>
+            Do NOT act on this AI response. Refer the patient to a qualified clinician.</div>
+        </div>
+        <div class="answer-card" style="border-color:#78350f;">
             <span class="badge-fallback">⚠ UNVERIFIABLE</span>
             <div style="margin-top:12px; color:#e2e8f0;">{safe_answer}</div>
         </div>
         """, unsafe_allow_html=True)
-        st.caption("⚠️ Could not verify — please contact staff directly")
+        st.caption("⚠️ WHO records insufficient to verify this — escalate to a clinician")
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 
 with st.sidebar:
     st.markdown("""
     <div class="sidebar-brand">
-        <span class="sidebar-brand-icon">🔒</span>
-        <span class="sidebar-brand-text">Hallucination Firewall</span>
+        <span class="sidebar-brand-icon">💊</span>
+        <span class="sidebar-brand-text">DoseGuard</span>
     </div>
+    <div style="font-size:0.72rem;color:#475569;margin:-10px 0 12px 0;">Hallucination Firewall · WHO Essential Medicines</div>
     """, unsafe_allow_html=True)
 
     backend = active_backend()
@@ -460,7 +515,10 @@ with st.sidebar:
 
     st.markdown("---")
 
-    domain_label = st.selectbox("Select Domain", list(DOMAINS.keys()), label_visibility="collapsed")
+    # Default to Rural Clinic (CHW) — our primary use case
+    domain_keys = list(DOMAINS.keys())
+    default_idx = domain_keys.index("🌍 Rural Clinic")
+    domain_label = st.selectbox("Select Domain", domain_keys, index=default_idx, label_visibility="collapsed")
     domain = DOMAINS[domain_label]
     org_id = domain["org_id"]
     st.markdown(f'<div class="record-detail" style="margin-bottom:12px">{domain["description"]}</div>', unsafe_allow_html=True)
@@ -533,22 +591,44 @@ with st.sidebar:
             st.session_state["prefill"] = q
             st.rerun()
 
+    st.markdown("---")
+    st.markdown("""
+    <div class="disclaimer">
+        <strong>Disclaimer:</strong> DoseGuard provides WHO-sourced educational information only.
+        Always consult a qualified clinician before administering any medicine.
+        Information is verified against WHO Essential Medicines List records.
+        For life-threatening emergencies, call emergency services immediately.
+    </div>
+    """, unsafe_allow_html=True)
+
 # ── Main area ─────────────────────────────────────────────────────────────────
 
-tab_chat, tab_audit = st.tabs(["💬  Chat", "📋  Audit Log"])
+tab_chat, tab_clinical, tab_photo, tab_audit = st.tabs(["💬  Quick Check", "🩺  Clinical Check", "📸  Photo Check", "📋  Audit Log"])
 
 with tab_chat:
     # Hero
     fw_status = "ACTIVE 🔒" if firewall_on else "DISABLED ⚠"
     fw_color  = "#6ee7b7" if firewall_on else "#fca5a5"
+
+    if org_id == "chw":
+        hero_title = "DoseGuard — Medicine Verification"
+        hero_sub = "WHO Essential Medicines · Post-generation Hallucination Firewall · Offline-capable via Ollama"
+        hero_desc = "Ask any medicine dosing question. Every answer is verified against WHO Essential Medicine records before delivery."
+    else:
+        hero_title = f"{domain_label} AI Assistant"
+        hero_sub = f"Powered by Gemma 4 · Post-generation verification against {domain['description'].split('—')[0].strip().lower()}"
+        hero_desc = ""
+
     st.markdown(f"""
     <div class="hero">
-        <div class="hero-title">{domain_label} AI Assistant</div>
-        <div class="hero-sub">Powered by Gemma 4 · Post-generation verification against {domain["description"].split("—")[0].strip().lower()}</div>
-        <div>
+        <div class="hero-title">{hero_title}</div>
+        <div class="hero-sub">{hero_sub}</div>
+        {"<div style='margin-top:10px;font-size:0.85rem;color:#94a3b8;'>" + hero_desc + "</div>" if hero_desc else ""}
+        <div style="margin-top:12px;">
             <span class="hero-badge">Gemma 4</span>
             <span class="hero-badge">FAISS</span>
             <span class="hero-badge">Ollama</span>
+            <span class="hero-badge">WHO EML</span>
             <span class="hero-badge" style="color:{fw_color};border-color:{fw_color};background:rgba(99,102,241,0.05)">Firewall {fw_status}</span>
         </div>
     </div>
@@ -647,6 +727,232 @@ with tab_chat:
             "citation":      result.get("citation", "")    if firewall_on else "",
             "contradiction": result.get("contradiction", "") if firewall_on else "",
         })
+
+# ── Clinical Check Tab ────────────────────────────────────────────────────────
+
+with tab_clinical:
+    st.markdown("""
+    <div class="hero" style="background: linear-gradient(135deg, #1a0f00 0%, #0f1a0a 100%); border-color:#78350f;">
+        <div class="hero-title" style="font-size:1.6rem;">🩺 Clinical Check Mode</div>
+        <div class="hero-sub">Structured patient profile verification — weight-based dosing with WHO records</div>
+        <div style="margin-top:10px;font-size:0.84rem;color:#94a3b8;">
+            Enter patient details for precise weight-based dosing verification.
+            The Hallucination Firewall checks every answer against WHO Essential Medicine records.
+        </div>
+        <div style="margin-top:12px;">
+            <span class="mode-pill mode-clinical">CLINICAL MODE</span>
+            <span class="hero-badge">Weight-Based Dosing</span>
+            <span class="hero-badge">WHO EML</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    cc1, cc2 = st.columns([1, 1])
+    with cc1:
+        med_name   = st.text_input("Medicine name", placeholder="e.g. Amoxicillin, Paracetamol, ORS...")
+        condition  = st.text_input("Condition / indication", placeholder="e.g. Pneumonia, Fever, Malaria...")
+        age_group  = st.selectbox("Age group", ["Neonate (0–28 days)", "Infant (1–12 months)",
+                                                "Child 1–5 years", "Child 6–12 years",
+                                                "Adolescent 13–17 years", "Adult"])
+    with cc2:
+        weight_kg  = st.number_input("Patient weight (kg)", min_value=1.0, max_value=150.0,
+                                     value=10.0, step=0.5)
+        query_type = st.selectbox("Query type", ["Correct dose", "Contraindications",
+                                                  "Can this be given?", "Comparison with alternative",
+                                                  "Side effects to watch"])
+        extra_note = st.text_input("Additional note (optional)", placeholder="e.g. penicillin allergy, kidney issue...")
+
+    if st.button("🔍 Verify with WHO Firewall", type="primary", use_container_width=True):
+        if not med_name:
+            st.warning("Please enter a medicine name.")
+        else:
+            # Build structured clinical query
+            query_parts = [f"{query_type} of {med_name}"]
+            if condition:
+                query_parts.append(f"for {condition}")
+            query_parts.append(f"in a {age_group.split(' (')[0].lower()} weighing {weight_kg} kg")
+            if extra_note:
+                query_parts.append(f"(Note: {extra_note})")
+            clinical_query = " ".join(query_parts) + "?"
+
+            st.markdown(f"**Query:** `{clinical_query}`")
+            st.markdown("---")
+
+            from firewall import chat as fw_chat, _load_cache
+            cache = _load_cache()
+            cache_key = f"chw::{clinical_query.strip().lower()}"
+
+            with st.spinner("Generating and verifying with WHO Hallucination Firewall..."):
+                if cache_key in cache:
+                    result = cache[cache_key]
+                else:
+                    result = fw_chat(clinical_query, org_id="chw")
+
+            _render_result(result, result.get("original_answer", ""))
+
+            # Show weight context box
+            st.markdown(f"""
+            <div style="background:rgba(249,115,22,0.08);border:1px solid rgba(249,115,22,0.3);
+                        border-radius:8px;padding:12px 16px;margin-top:12px;font-size:0.84rem;color:#fdba74;">
+                <strong>Clinical context:</strong> {med_name} · {weight_kg} kg · {age_group.split(' (')[0]} · {condition or 'general'}
+            </div>
+            """, unsafe_allow_html=True)
+
+            st.markdown("""
+            <div class="disclaimer" style="margin-top:12px;">
+                This verification is based on WHO Essential Medicines List guidelines only.
+                Always confirm with a qualified clinician before administering any medicine.
+                Weight-based dosing calculations should be double-checked clinically.
+            </div>
+            """, unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("**Common clinical queries:**")
+    clinical_samples = [
+        ("Amoxicillin", "Pneumonia",   "Child 1–5 years",  10.0, "Correct dose"),
+        ("Artemether-Lumefantrine", "Malaria", "Child 1–5 years", 20.0, "Correct dose"),
+        ("ORS + Zinc", "Diarrhoea",   "Child 1–5 years",   8.0, "Correct dose"),
+        ("Paracetamol", "Fever",       "Child 1–5 years",  12.0, "Correct dose"),
+        ("Misoprostol", "PPH prevention", "Adult",         60.0, "Correct dose"),
+        ("Adrenaline",  "Anaphylaxis", "Adult",            70.0, "Correct dose"),
+    ]
+    for i in range(0, len(clinical_samples), 3):
+        cols = st.columns(3)
+        for j, col in enumerate(cols):
+            if i + j < len(clinical_samples):
+                s = clinical_samples[i + j]
+                if col.button(f"{s[0]} — {s[1]} ({s[4]})", key=f"cs_{i}_{j}"):
+                    st.session_state["cc_med"]    = s[0]
+                    st.session_state["cc_cond"]   = s[1]
+                    st.session_state["cc_age"]    = s[2]
+                    st.session_state["cc_weight"] = s[3]
+                    st.session_state["cc_qtype"]  = s[4]
+                    st.rerun()
+
+
+# ── Photo Check Tab ───────────────────────────────────────────────────────────
+
+with tab_photo:
+    st.markdown("""
+    <div class="hero" style="background: linear-gradient(135deg, #0f1a33 0%, #1a0f2e 100%); border-color:#1e3a5f;">
+        <div class="hero-title" style="font-size:1.6rem;">📸 Photo Check Mode</div>
+        <div class="hero-sub">Photograph a medicine box · Gemma 4 reads the label · Firewall verifies against WHO records</div>
+        <div style="margin-top:10px;font-size:0.84rem;color:#94a3b8;">
+            The scenario that started DoseGuard: I photographed a medicine at CVS and asked an AI.
+            It recommended Visine (wrong). The correct answer was Ketotifen. This mode catches that.
+        </div>
+        <div style="margin-top:12px;">
+            <span class="mode-pill mode-quick">MULTIMODAL</span>
+            <span class="hero-badge">Gemma 4 Vision</span>
+            <span class="hero-badge">WHO Firewall</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    uploaded = st.file_uploader(
+        "Upload a photo of the medicine box or bottle label",
+        type=["jpg", "jpeg", "png", "webp"],
+        help="Take a clear photo of the front label. The medicine name and active ingredient must be visible."
+    )
+
+    photo_question = st.text_input(
+        "Your question about this medicine",
+        placeholder="e.g. Is this the right treatment for my itchy red eyes from allergies?"
+    )
+
+    col_demo, col_check = st.columns([1, 2])
+    with col_demo:
+        demo_mode = st.checkbox("Run demo (simulate Visine scenario)", value=True,
+                                help="Simulates the CVS scenario that inspired DoseGuard")
+    with col_check:
+        run_photo = st.button("🔍 Analyse and Verify", type="primary", use_container_width=True)
+
+    if run_photo:
+        from photo_verify import verify_photo, verify_answer as pv_verify
+
+        if demo_mode or not uploaded:
+            # Demo: The CVS scenario — Visine vs Ketotifen
+            st.markdown("---")
+            st.info("Running demo: Simulating Visine bottle photo from CVS scenario")
+
+            demo_extracted = {
+                "medicine_name": "Visine Advanced Redness + Irritation Relief",
+                "generic_name": "Tetrahydrozoline HCl 0.05%",
+                "label_claim": "Redness Relief Eye Drops — for red, irritated eyes",
+                "label_dose": "1-2 drops up to 4 times daily",
+                "confidence": 0.95,
+            }
+            q = photo_question or "Is this the right eye drop for itchy red eyes from allergies?"
+            full_q = (
+                f"{q} The medicine label shows: {demo_extracted['medicine_name']} "
+                f"(active ingredient: {demo_extracted['generic_name']}). "
+                f"The label claims: {demo_extracted['label_claim']}."
+            )
+
+            st.markdown(f"""
+            <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);
+                        border-radius:8px;padding:12px 16px;margin-bottom:16px;">
+                <strong style="color:#a5b4fc;">📦 Label read by Gemma 4:</strong><br>
+                <span style="color:#e2e8f0;">Medicine: <strong>{demo_extracted['medicine_name']}</strong></span><br>
+                <span style="color:#e2e8f0;">Active ingredient: <strong>{demo_extracted['generic_name']}</strong></span><br>
+                <span style="color:#e2e8f0;">Label claim: {demo_extracted['label_claim']}</span>
+            </div>
+            """, unsafe_allow_html=True)
+
+            with st.spinner("Hallucination Firewall checking against WHO records..."):
+                result = pv_verify(
+                    llm_answer=(
+                        f"{demo_extracted['medicine_name']} contains {demo_extracted['generic_name']} "
+                        f"and is indicated for {demo_extracted['label_claim']}. "
+                        f"It can be used for allergic eye symptoms."
+                    ),
+                    user_question=full_q,
+                    org_id="chw",
+                )
+
+            _render_result(result, result.get("original_answer", ""))
+
+        elif uploaded:
+            import tempfile
+            suffix = Path(uploaded.name).suffix
+            with tempfile.NamedTemporaryFile(delete=False, suffix=suffix) as tmp:
+                tmp.write(uploaded.read())
+                tmp_path = tmp.name
+
+            col_img, col_result = st.columns([1, 1])
+            with col_img:
+                st.image(tmp_path, caption="Uploaded medicine label", use_container_width=True)
+
+            with col_result:
+                with st.spinner("Gemma 4 reading label..."):
+                    result_full = verify_photo(
+                        tmp_path,
+                        photo_question or "Is this medicine appropriate for my condition?"
+                    )
+            os.unlink(tmp_path)
+
+            extracted = result_full["extracted"]
+            if extracted.get("medicine_name"):
+                st.markdown(f"""
+                <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);
+                            border-radius:8px;padding:12px 16px;margin-bottom:16px;">
+                    <strong style="color:#a5b4fc;">📦 Label read by Gemma 4:</strong><br>
+                    <span style="color:#e2e8f0;">Medicine: <strong>{extracted.get('medicine_name', '—')}</strong></span><br>
+                    <span style="color:#e2e8f0;">Active ingredient: <strong>{extracted.get('generic_name', '—')}</strong></span><br>
+                    <span style="color:#e2e8f0;">Label claim: {extracted.get('label_claim', '—')}</span>
+                </div>
+                """, unsafe_allow_html=True)
+
+            _render_result(result_full["firewall"], result_full["firewall"].get("original_answer", ""))
+
+        st.markdown("""
+        <div class="disclaimer" style="margin-top:16px;">
+            Photo analysis uses Gemma 4 vision to read medicine labels. Accuracy depends on photo quality.
+            Always confirm medicine identity visually. WHO verification is for educational purposes only.
+            Consult a pharmacist or clinician before taking or dispensing any medication.
+        </div>
+        """, unsafe_allow_html=True)
+
 
 # ── Audit Log ─────────────────────────────────────────────────────────────────
 

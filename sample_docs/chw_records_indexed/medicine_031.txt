@@ -1,0 +1,7 @@
+MEDICINE: Diazepam
+CATEGORY: Anticonvulsant / Anxiolytic
+INDICATIONS: Seizures, status epilepticus, severe anxiety, alcohol withdrawal, muscle spasm.
+ADULT DOSE (seizures): 5–10mg IV slowly. Repeat after 10–15 minutes if needed. Maximum 30mg.
+CHILD DOSE (seizures): 0.3mg/kg IV or 0.5mg/kg rectally. Maximum 10mg single dose.
+CONTRAINDICATIONS: Respiratory depression. Myasthenia gravis. Severe liver disease. First trimester pregnancy.
+NOTES: Respiratory support must be available. Short-term use only — highly addictive. IV must be given slowly.

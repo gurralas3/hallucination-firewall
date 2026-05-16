@@ -1,0 +1,7 @@
+MEDICINE: Rifampicin
+CATEGORY: Antituberculosis
+INDICATIONS: Tuberculosis (always in combination). Leprosy. Meningococcal prophylaxis.
+ADULT DOSE (TB): 600mg once daily or 10mg/kg. Part of standard RHEZ regimen.
+CHILD DOSE: 10–20mg/kg once daily (maximum 600mg).
+CONTRAINDICATIONS: Liver disease. Concurrent protease inhibitor use.
+NOTES: Colours urine, saliva, sweat orange-red — warn patients. Powerful enzyme inducer — many drug interactions including contraceptives and ARVs.

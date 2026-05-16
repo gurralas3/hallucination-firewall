@@ -1,0 +1,7 @@
+MEDICINE: Metronidazole
+CATEGORY: Antibiotic / Antiprotozoal
+INDICATIONS: Anaerobic bacterial infections, giardiasis, amoebiasis, trichomoniasis, bacterial vaginosis.
+ADULT DOSE: 400–500mg three times daily for 5–7 days. Giardia: 2g single dose.
+CHILD DOSE: 7.5mg/kg three times daily for 5–7 days.
+CONTRAINDICATIONS: First trimester of pregnancy. Alcohol — causes severe vomiting reaction.
+NOTES: Do not drink alcohol during treatment and for 48 hours after. Metallic taste is common.

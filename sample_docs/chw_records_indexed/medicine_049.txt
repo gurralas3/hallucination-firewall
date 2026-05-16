@@ -1,0 +1,7 @@
+MEDICINE: Ketotifen (Eye Drops)
+CATEGORY: Antihistamine Eye Drop
+INDICATIONS: Allergic conjunctivitis — itchy, watery, red eyes due to allergy. Hay fever eye symptoms.
+ADULT DOSE: 1 drop in affected eye(s) twice daily.
+CHILD DOSE (over 3 years): 1 drop twice daily.
+CONTRAINDICATIONS: Known hypersensitivity to ketotifen. Not for contact lens wearers during use.
+NOTES: First-line WHO-recommended treatment for allergic conjunctivitis. Treats the allergic cause — not just redness. Different from vasoconstrictors like Tetrahydrozoline (Visine) which only reduce redness without treating allergy.

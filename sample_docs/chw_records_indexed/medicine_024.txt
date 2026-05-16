@@ -1,0 +1,7 @@
+MEDICINE: Hydrochlorothiazide
+CATEGORY: Antihypertensive (Diuretic)
+INDICATIONS: Hypertension. Oedema in heart failure.
+ADULT DOSE: 12.5–25mg once daily in the morning.
+CHILD DOSE: 1–2mg/kg/day in one or two doses.
+CONTRAINDICATIONS: Anuria. Severe kidney impairment. Sulfonamide allergy.
+NOTES: Take in morning to avoid night-time urination. Monitor potassium — can cause hypokalaemia.

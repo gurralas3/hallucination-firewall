@@ -1,0 +1,7 @@
+MEDICINE: Oxytocin
+CATEGORY: Uterotonic
+INDICATIONS: Prevention and treatment of postpartum haemorrhage (PPH). Induction of labour.
+PPH PREVENTION DOSE: 10 IU intramuscularly immediately after delivery of baby.
+PPH TREATMENT DOSE: 20–40 IU in 1 litre IV fluid, infuse at rate to control bleeding.
+CONTRAINDICATIONS: Uterine hyperstimulation. Fetal distress before delivery.
+NOTES: First-line drug for PPH prevention. Most critical medicine in preventing maternal death. Keep refrigerated.

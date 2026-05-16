@@ -1,0 +1,9 @@
+MEDICINE: Oral Rehydration Salts (ORS)
+CATEGORY: Rehydration
+INDICATIONS: Dehydration from diarrhoea and vomiting in all age groups.
+ADULT DOSE: 200–400ml after each loose stool until diarrhoea stops.
+CHILD DOSE (under 2 years): 50–100ml after each stool.
+CHILD DOSE (2–10 years): 100–200ml after each stool.
+CHILD DOSE (over 10 years): as much as wanted.
+CONTRAINDICATIONS: Severe dehydration requiring IV fluids. Unconscious patient.
+NOTES: First-line treatment for diarrhoeal dehydration. Do not add extra sugar or salt. Use safe water.

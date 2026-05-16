@@ -1,0 +1,7 @@
+MEDICINE: Doxycycline
+CATEGORY: Antibiotic
+INDICATIONS: Respiratory infections, sexually transmitted infections, malaria prophylaxis, Lyme disease, rickettsial disease.
+ADULT DOSE: 100mg twice daily for 7 days. Malaria prophylaxis: 100mg daily starting 1–2 days before travel.
+CHILD DOSE: Not recommended under 8 years — causes permanent tooth discolouration.
+CONTRAINDICATIONS: Children under 8 years. Pregnancy. Breastfeeding.
+NOTES: Take with full glass of water. Do not lie down for 30 minutes after dose. Avoid sun exposure.

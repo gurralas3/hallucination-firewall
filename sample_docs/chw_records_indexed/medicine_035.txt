@@ -1,0 +1,7 @@
+MEDICINE: Fluconazole
+CATEGORY: Antifungal
+INDICATIONS: Candida infections (oral, oesophageal, vaginal, systemic). Cryptococcal meningitis (with Flucytosine).
+ADULT DOSE: Vaginal candida: 150mg single dose. Oropharyngeal: 50mg daily for 7–14 days. Cryptococcal meningitis: 400–800mg daily.
+CHILD DOSE: 3–6mg/kg once daily depending on indication.
+CONTRAINDICATIONS: Liver disease. Interaction with many drugs — check before prescribing.
+NOTES: Long half-life — once daily or single dose for many infections. Avoid in first trimester.

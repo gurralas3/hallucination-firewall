@@ -1,0 +1,7 @@
+MEDICINE: Phenobarbital
+CATEGORY: Anticonvulsant
+INDICATIONS: Epilepsy. Neonatal seizures. Status epilepticus (second-line).
+ADULT DOSE: 60–180mg at night. Loading: 10–15mg/kg IV for status epilepticus.
+CHILD DOSE (neonates): 20mg/kg IV loading dose. Maintenance: 3–5mg/kg/day.
+CONTRAINDICATIONS: Acute porphyria. Severe respiratory depression.
+NOTES: Enzyme inducer — reduces effect of many drugs including contraceptives and antiretrovirals. Sedating.

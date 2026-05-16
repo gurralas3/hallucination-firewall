@@ -1,0 +1,7 @@
+MEDICINE: Metformin
+CATEGORY: Antidiabetic
+INDICATIONS: Type 2 diabetes mellitus. Not for Type 1 diabetes.
+ADULT DOSE: Start 500mg twice daily with meals. Increase to 1000–2000mg/day over 4 weeks.
+CHILD DOSE: Not recommended under 10 years. Age 10+: 500mg twice daily, maximum 2000mg/day.
+CONTRAINDICATIONS: Kidney impairment (eGFR below 30). Liver disease. Heart failure. Alcohol excess.
+NOTES: Take with food. Monitor kidney function annually. Causes lactic acidosis in kidney failure.

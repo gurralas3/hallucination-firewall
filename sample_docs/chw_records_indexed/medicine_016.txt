@@ -1,0 +1,8 @@
+MEDICINE: Iron (Ferrous Sulfate)
+CATEGORY: Nutritional
+INDICATIONS: Iron-deficiency anaemia. Anaemia in pregnancy.
+ADULT DOSE: 200mg (65mg elemental iron) two to three times daily.
+CHILD DOSE: 3–6mg/kg/day of elemental iron in divided doses.
+PREGNANT WOMEN: 60mg elemental iron daily for prevention. 120mg daily for treatment.
+CONTRAINDICATIONS: Haemochromatosis. Haemolytic anaemia. Repeated blood transfusions.
+NOTES: Take on empty stomach if tolerated — increases absorption. Turns stools dark — normal.

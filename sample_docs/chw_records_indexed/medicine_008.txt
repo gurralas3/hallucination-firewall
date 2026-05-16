@@ -1,0 +1,9 @@
+MEDICINE: Artemether-Lumefantrine (Coartem)
+CATEGORY: Antimalarial
+INDICATIONS: Uncomplicated Plasmodium falciparum malaria.
+ADULT DOSE: 4 tablets at 0h, 8h, 24h, 36h, 48h, 60h (6 doses total over 3 days).
+CHILD DOSE (5–14kg): 1 tablet per dose × 6 doses.
+CHILD DOSE (15–24kg): 2 tablets per dose × 6 doses.
+CHILD DOSE (25–34kg): 3 tablets per dose × 6 doses.
+CONTRAINDICATIONS: First trimester pregnancy. Severe malaria (use IV Artesunate instead). Cardiac arrhythmia.
+NOTES: Must be taken with food or milk fat for absorption. Not for severe malaria.

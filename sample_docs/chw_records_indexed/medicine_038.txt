@@ -1,0 +1,8 @@
+MEDICINE: Aciclovir (Acyclovir)
+CATEGORY: Antiviral
+INDICATIONS: Herpes simplex (oral, genital, encephalitis). Varicella-zoster (chickenpox, shingles).
+ADULT DOSE: Genital herpes: 200mg 5 times daily for 5 days. Encephalitis: 10mg/kg IV every 8 hours for 14–21 days.
+CHILD DOSE (chickenpox, over 2 years): 20mg/kg (max 800mg) 4 times daily for 5 days.
+CHILD DOSE (neonatal herpes): 20mg/kg IV every 8 hours for 14–21 days.
+CONTRAINDICATIONS: Kidney impairment (reduce dose). Dehydration.
+NOTES: Most effective when started early. IV form for severe or CNS infection.

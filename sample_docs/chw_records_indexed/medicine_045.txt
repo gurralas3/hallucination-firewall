@@ -1,0 +1,7 @@
+MEDICINE: Ethambutol
+CATEGORY: Antituberculosis
+INDICATIONS: Tuberculosis (combination — first 2 months).
+ADULT DOSE: 15mg/kg once daily.
+CHILD DOSE: 20mg/kg once daily (maximum 1g).
+CONTRAINDICATIONS: Optic neuritis. Poor visual acuity. Children too young for visual monitoring.
+NOTES: Can cause optic neuritis — check vision before and during treatment. Stop if visual changes occur.

@@ -1,0 +1,7 @@
+MEDICINE: Chloroquine
+CATEGORY: Antimalarial
+INDICATIONS: Plasmodium vivax and P. ovale malaria (NOT for P. falciparum in most regions — resistant).
+ADULT DOSE: 600mg base on day 1, 300mg on day 2, 300mg on day 3.
+CHILD DOSE: 10mg base/kg on day 1, 5mg/kg on days 2 and 3.
+CONTRAINDICATIONS: Known chloroquine resistance in region. Retinal disease. Epilepsy.
+NOTES: Not effective against P. falciparum in most of Africa, Asia, South America — confirm local resistance patterns.

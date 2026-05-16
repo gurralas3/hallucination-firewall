@@ -1,0 +1,9 @@
+MEDICINE: Vitamin A
+CATEGORY: Nutritional
+INDICATIONS: Vitamin A deficiency. Prevention of complications in measles. Night blindness.
+CHILD DOSE (under 6 months): 50,000 IU once.
+CHILD DOSE (6–11 months): 100,000 IU once.
+CHILD DOSE (12 months and above): 200,000 IU once, repeat after 4 weeks in deficiency.
+ADULT DOSE: 200,000 IU for deficiency.
+CONTRAINDICATIONS: Hypervitaminosis A. Pregnancy — high doses teratogenic.
+NOTES: Give immediately to children with measles in areas of deficiency. Reduces measles mortality.

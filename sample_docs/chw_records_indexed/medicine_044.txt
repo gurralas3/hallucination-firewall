@@ -1,0 +1,7 @@
+MEDICINE: Pyrazinamide
+CATEGORY: Antituberculosis
+INDICATIONS: Tuberculosis (first 2 months of standard regimen only).
+ADULT DOSE: 25mg/kg once daily. Maximum 2g/day.
+CHILD DOSE: 30–40mg/kg once daily (maximum 2g).
+CONTRAINDICATIONS: Severe liver disease. Acute gout.
+NOTES: Used only in first 2 months of TB treatment. Causes hyperuricaemia — can trigger gout.

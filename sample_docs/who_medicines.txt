@@ -1,88 +1,441 @@
 MEDICINE: Amoxicillin
-INDICATIONS: Bacterial infections including pneumonia, ear infections, urinary tract infections, skin infections.
-ADULT DOSE: 250-500mg every 8 hours orally for 5-7 days. Severe infections: 875mg every 12 hours.
-CHILD DOSE (under 5): 40-90mg/kg/day divided every 8-12 hours. For pneumonia: 40mg/kg/day in two divided doses for 5 days.
-CONTRAINDICATIONS: Penicillin allergy. Use with caution in patients with mononucleosis.
-NOTES: First-line treatment for childhood pneumonia per WHO guidelines.
-
-MEDICINE: Metformin
-INDICATIONS: Type 2 diabetes mellitus. Not indicated for Type 1 diabetes.
-ADULT DOSE: Start 500mg twice daily with meals. Increase gradually to 1000-2000mg/day in divided doses.
-CHILD DOSE: Not recommended under 10 years. Children 10+: 500mg twice daily, max 2000mg/day.
-CONTRAINDICATIONS: Kidney impairment (eGFR < 30), liver disease, heart failure, alcohol abuse.
-NOTES: Take with food to reduce GI side effects. Monitor kidney function annually.
-
-MEDICINE: Oral Rehydration Salts (ORS)
-INDICATIONS: Dehydration due to diarrhoea and vomiting in all age groups.
-ADULT DOSE: 200-400ml after each loose stool. Continue until diarrhoea stops.
-CHILD DOSE (under 5): 50-100ml after each loose stool. If child vomits, wait 10 minutes and give slowly.
-CHILD DOSE (5-12 years): 100-200ml after each loose stool.
-CONTRAINDICATIONS: Severe dehydration requiring IV fluids. Unconscious patients.
-NOTES: First-line treatment for diarrhoeal dehydration. Do not add sugar or extra salt.
-
-MEDICINE: Paracetamol (Acetaminophen)
-INDICATIONS: Mild to moderate pain, fever.
-ADULT DOSE: 500-1000mg every 4-6 hours. Maximum 4000mg per day.
-CHILD DOSE: 10-15mg/kg every 4-6 hours. Maximum 5 doses in 24 hours.
-CHILD DOSE (under 3 months): Only under medical supervision.
-CONTRAINDICATIONS: Severe liver disease. Do not combine with other paracetamol-containing products.
-NOTES: Overdose causes serious liver damage. Do not exceed recommended dose.
-
-MEDICINE: Artemether-Lumefantrine (Coartem)
-INDICATIONS: Uncomplicated Plasmodium falciparum malaria.
-ADULT DOSE: 4 tablets at diagnosis, 4 tablets after 8 hours, then 4 tablets twice daily for next 2 days (24 tablets total).
-CHILD DOSE (5-14kg): 1 tablet per dose, same schedule.
-CHILD DOSE (15-24kg): 2 tablets per dose, same schedule.
-CHILD DOSE (25-34kg): 3 tablets per dose, same schedule.
-CONTRAINDICATIONS: First trimester of pregnancy. Severe malaria (use IV artesunate instead).
-NOTES: Must be taken with food or milk. Do not use for severe malaria.
+CATEGORY: Antibiotic
+INDICATIONS: Bacterial infections — pneumonia, ear infections, urinary tract infections, skin infections, tonsillitis.
+ADULT DOSE: 250–500mg every 8 hours orally for 5–7 days. Severe: 875mg every 12 hours.
+CHILD DOSE (under 5, pneumonia): 40mg/kg/day in two divided doses for 5 days.
+CHILD DOSE (general, by weight): 8kg = 160mg twice daily. 10kg = 200mg twice daily. 15kg = 300mg twice daily. 20kg = 400mg twice daily.
+CONTRAINDICATIONS: Penicillin allergy. Caution in mononucleosis.
+NOTES: First-line WHO treatment for childhood pneumonia. Take full course even if feeling better.
 
 MEDICINE: Amoxicillin-Clavulanate (Co-Amoxiclav)
-INDICATIONS: Infections resistant to Amoxicillin alone, including sinusitis, diabetic foot, animal bites.
-ADULT DOSE: 625mg every 8 hours or 1g every 12 hours for 5-7 days.
-CHILD DOSE: 40mg/kg/day of amoxicillin component divided every 8 hours.
-CONTRAINDICATIONS: Penicillin allergy. Liver disease. Jaundice from prior use.
-NOTES: Different from plain Amoxicillin — broader spectrum. Higher GI side effects.
+CATEGORY: Antibiotic
+INDICATIONS: Infections resistant to plain Amoxicillin — sinusitis, diabetic foot, animal bites, skin abscesses.
+ADULT DOSE: 625mg every 8 hours or 1g every 12 hours for 5–7 days.
+CHILD DOSE: 40mg/kg/day of amoxicillin component in divided doses every 8 hours.
+CONTRAINDICATIONS: Penicillin allergy. Liver disease. Prior jaundice from this medicine.
+NOTES: Stronger than plain Amoxicillin. Higher GI side effects — take with food.
 
-MEDICINE: Zinc Sulfate
-INDICATIONS: Adjunct treatment for diarrhoea in children, zinc deficiency.
-CHILD DOSE (under 6 months): 10mg daily for 10-14 days.
-CHILD DOSE (6 months and above): 20mg daily for 10-14 days.
-ADULT DOSE: 20mg daily for zinc deficiency.
-CONTRAINDICATIONS: None significant at therapeutic doses.
-NOTES: Give alongside ORS for childhood diarrhoea. Reduces duration and severity.
+MEDICINE: Doxycycline
+CATEGORY: Antibiotic
+INDICATIONS: Respiratory infections, sexually transmitted infections, malaria prophylaxis, Lyme disease, rickettsial disease.
+ADULT DOSE: 100mg twice daily for 7 days. Malaria prophylaxis: 100mg daily starting 1–2 days before travel.
+CHILD DOSE: Not recommended under 8 years — causes permanent tooth discolouration.
+CONTRAINDICATIONS: Children under 8 years. Pregnancy. Breastfeeding.
+NOTES: Take with full glass of water. Do not lie down for 30 minutes after dose. Avoid sun exposure.
+
+MEDICINE: Ciprofloxacin
+CATEGORY: Antibiotic
+INDICATIONS: Urinary tract infections, gastrointestinal infections, respiratory infections, anthrax exposure.
+ADULT DOSE: 250–500mg twice daily for 3–7 days depending on indication.
+CHILD DOSE: Not routinely recommended in children — use only under medical supervision. 10–15mg/kg twice daily if essential.
+CONTRAINDICATIONS: Hypersensitivity to fluoroquinolones. Caution in children and adolescents — affects cartilage development.
+NOTES: Not first-line for simple UTI. Avoid antacids within 2 hours of dose.
+
+MEDICINE: Metronidazole
+CATEGORY: Antibiotic / Antiprotozoal
+INDICATIONS: Anaerobic bacterial infections, giardiasis, amoebiasis, trichomoniasis, bacterial vaginosis.
+ADULT DOSE: 400–500mg three times daily for 5–7 days. Giardia: 2g single dose.
+CHILD DOSE: 7.5mg/kg three times daily for 5–7 days.
+CONTRAINDICATIONS: First trimester of pregnancy. Alcohol — causes severe vomiting reaction.
+NOTES: Do not drink alcohol during treatment and for 48 hours after. Metallic taste is common.
 
 MEDICINE: Cotrimoxazole (Trimethoprim-Sulfamethoxazole)
-INDICATIONS: Urinary tract infections, pneumocystis pneumonia (PCP) in HIV patients, prophylaxis.
-ADULT DOSE: 960mg (double strength) twice daily for UTI. PCP prophylaxis: 960mg daily.
-CHILD DOSE: 24mg/kg/day in two divided doses.
+CATEGORY: Antibiotic
+INDICATIONS: UTI, PCP pneumonia in HIV patients, daily HIV prophylaxis in children.
+ADULT DOSE: 960mg twice daily for UTI (3–5 days). PCP prophylaxis: 960mg daily.
+CHILD DOSE: 24mg/kg/day in two divided doses. HIV prophylaxis: 240mg daily from 6 weeks of age.
 CONTRAINDICATIONS: Sulfonamide allergy. Severe kidney or liver impairment. Neonates under 6 weeks.
-NOTES: Used as daily prophylaxis in HIV-positive children. Do not use in newborns.
+NOTES: Essential for HIV-positive children as daily prophylaxis. Do not use in newborns under 6 weeks.
 
 MEDICINE: Gentamicin
-INDICATIONS: Severe bacterial infections, neonatal sepsis.
-ADULT DOSE: 3-5mg/kg/day IV or IM once daily.
-CHILD DOSE (neonates): 5mg/kg every 36 hours in first week of life.
-CHILD DOSE (infants/children): 7.5mg/kg/day once daily.
-CONTRAINDICATIONS: Kidney impairment. Monitor renal function and hearing with prolonged use.
-NOTES: Do not use for mild infections. Risk of hearing loss and kidney damage with high doses.
+CATEGORY: Antibiotic
+INDICATIONS: Severe bacterial infections, neonatal sepsis, pyelonephritis, endocarditis.
+ADULT DOSE: 3–5mg/kg/day IV or IM once daily.
+CHILD DOSE (neonates, first week): 5mg/kg every 36 hours.
+CHILD DOSE (infants and children): 7.5mg/kg once daily.
+CONTRAINDICATIONS: Kidney impairment. History of hearing loss from aminoglycosides.
+NOTES: Monitor kidney function and hearing with prolonged use. Risk of permanent hearing loss at high doses.
+
+MEDICINE: Benzylpenicillin (Penicillin G)
+CATEGORY: Antibiotic
+INDICATIONS: Severe streptococcal infections, meningitis, syphilis, anthrax, neonatal infections.
+ADULT DOSE: 1.2–2.4g IV every 4–6 hours depending on severity.
+CHILD DOSE (neonatal meningitis): 50mg/kg every 12 hours for first week, then every 8 hours.
+CONTRAINDICATIONS: Penicillin allergy.
+NOTES: IV or IM only — not for oral use. First-line for neonatal sepsis in resource-limited settings.
+
+MEDICINE: Artemether-Lumefantrine (Coartem)
+CATEGORY: Antimalarial
+INDICATIONS: Uncomplicated Plasmodium falciparum malaria.
+ADULT DOSE: 4 tablets at 0h, 8h, 24h, 36h, 48h, 60h (6 doses total over 3 days).
+CHILD DOSE (5–14kg): 1 tablet per dose × 6 doses.
+CHILD DOSE (15–24kg): 2 tablets per dose × 6 doses.
+CHILD DOSE (25–34kg): 3 tablets per dose × 6 doses.
+CONTRAINDICATIONS: First trimester pregnancy. Severe malaria (use IV Artesunate instead). Cardiac arrhythmia.
+NOTES: Must be taken with food or milk fat for absorption. Not for severe malaria.
+
+MEDICINE: Artesunate (IV)
+CATEGORY: Antimalarial
+INDICATIONS: Severe Plasmodium falciparum malaria — the only WHO-recommended treatment for severe malaria.
+ADULT DOSE: 2.4mg/kg IV at 0h, 12h, 24h, then once daily.
+CHILD DOSE (under 20kg): 3mg/kg IV at same intervals.
+CONTRAINDICATIONS: Known hypersensitivity to artemisinins.
+NOTES: Replaces quinine as first-line for severe malaria per WHO 2023 guidelines. Oral treatment must follow IV course.
+
+MEDICINE: Chloroquine
+CATEGORY: Antimalarial
+INDICATIONS: Plasmodium vivax and P. ovale malaria (NOT for P. falciparum in most regions — resistant).
+ADULT DOSE: 600mg base on day 1, 300mg on day 2, 300mg on day 3.
+CHILD DOSE: 10mg base/kg on day 1, 5mg/kg on days 2 and 3.
+CONTRAINDICATIONS: Known chloroquine resistance in region. Retinal disease. Epilepsy.
+NOTES: Not effective against P. falciparum in most of Africa, Asia, South America — confirm local resistance patterns.
+
+MEDICINE: Paracetamol (Acetaminophen)
+CATEGORY: Analgesic / Antipyretic
+INDICATIONS: Mild to moderate pain, fever.
+ADULT DOSE: 500–1000mg every 4–6 hours. Maximum 4000mg per day (4g).
+CHILD DOSE: 10–15mg/kg every 4–6 hours. Maximum 5 doses per 24 hours. Do not exceed 60mg/kg/day.
+CHILD DOSE (by weight): 5kg = 75mg. 10kg = 150mg. 15kg = 225mg. 20kg = 300mg. Per dose.
+CONTRAINDICATIONS: Severe liver disease. Do not combine with other paracetamol-containing products.
+NOTES: Most common cause of acute liver failure in overdose. Never exceed recommended dose.
+
+MEDICINE: Ibuprofen
+CATEGORY: NSAID / Analgesic
+INDICATIONS: Mild to moderate pain, fever, inflammation.
+ADULT DOSE: 200–400mg every 4–6 hours. Maximum 1200mg per day (OTC). Up to 2400mg/day under supervision.
+CHILD DOSE (over 6 months): 5–10mg/kg every 6–8 hours. Maximum 30mg/kg/day.
+CHILD DOSE: NOT recommended under 6 months.
+CONTRAINDICATIONS: Under 6 months. Peptic ulcer. Kidney impairment. Aspirin allergy. Third trimester pregnancy.
+NOTES: Take with food to reduce stomach irritation. Avoid in dehydrated children — risk of kidney injury.
+
+MEDICINE: Aspirin
+CATEGORY: Analgesic / Antiplatelet
+INDICATIONS: Pain, fever (adults only). Antiplatelet: post-MI, stroke prevention, cardiovascular disease.
+ADULT DOSE: Pain/fever: 300–600mg every 4–6 hours. Antiplatelet: 75–100mg once daily.
+CHILD DOSE: NOT recommended under 16 years — risk of Reye's syndrome (fatal liver and brain damage).
+CONTRAINDICATIONS: Children under 16. Peptic ulcer. Bleeding disorders. Anticoagulant therapy.
+NOTES: Never give to children or teenagers with viral illness. Critical contraindication.
+
+MEDICINE: Oral Rehydration Salts (ORS)
+CATEGORY: Rehydration
+INDICATIONS: Dehydration from diarrhoea and vomiting in all age groups.
+ADULT DOSE: 200–400ml after each loose stool until diarrhoea stops.
+CHILD DOSE (under 2 years): 50–100ml after each stool.
+CHILD DOSE (2–10 years): 100–200ml after each stool.
+CHILD DOSE (over 10 years): as much as wanted.
+CONTRAINDICATIONS: Severe dehydration requiring IV fluids. Unconscious patient.
+NOTES: First-line treatment for diarrhoeal dehydration. Do not add extra sugar or salt. Use safe water.
+
+MEDICINE: Zinc Sulfate
+CATEGORY: Nutritional / Antidiarrhoeal
+INDICATIONS: Adjunct treatment for childhood diarrhoea. Zinc deficiency.
+CHILD DOSE (under 6 months): 10mg daily for 10–14 days.
+CHILD DOSE (6 months and above): 20mg daily for 10–14 days.
+ADULT DOSE: 20mg daily for zinc deficiency.
+CONTRAINDICATIONS: None significant at therapeutic doses.
+NOTES: Always give alongside ORS for childhood diarrhoea. Reduces duration and severity.
+
+MEDICINE: Iron (Ferrous Sulfate)
+CATEGORY: Nutritional
+INDICATIONS: Iron-deficiency anaemia. Anaemia in pregnancy.
+ADULT DOSE: 200mg (65mg elemental iron) two to three times daily.
+CHILD DOSE: 3–6mg/kg/day of elemental iron in divided doses.
+PREGNANT WOMEN: 60mg elemental iron daily for prevention. 120mg daily for treatment.
+CONTRAINDICATIONS: Haemochromatosis. Haemolytic anaemia. Repeated blood transfusions.
+NOTES: Take on empty stomach if tolerated — increases absorption. Turns stools dark — normal.
+
+MEDICINE: Folic Acid
+CATEGORY: Nutritional
+INDICATIONS: Prevention of neural tube defects. Megaloblastic anaemia. Supplement in pregnancy.
+ADULT DOSE: Anaemia: 5mg daily for 4 months. Pregnancy prevention: 0.4mg daily before and during first trimester.
+CHILD DOSE: 5mg daily for megaloblastic anaemia.
+CONTRAINDICATIONS: Undiagnosed anaemia — can mask B12 deficiency.
+NOTES: All women of childbearing age should take 0.4mg folic acid daily ideally before conception.
+
+MEDICINE: Vitamin A
+CATEGORY: Nutritional
+INDICATIONS: Vitamin A deficiency. Prevention of complications in measles. Night blindness.
+CHILD DOSE (under 6 months): 50,000 IU once.
+CHILD DOSE (6–11 months): 100,000 IU once.
+CHILD DOSE (12 months and above): 200,000 IU once, repeat after 4 weeks in deficiency.
+ADULT DOSE: 200,000 IU for deficiency.
+CONTRAINDICATIONS: Hypervitaminosis A. Pregnancy — high doses teratogenic.
+NOTES: Give immediately to children with measles in areas of deficiency. Reduces measles mortality.
+
+MEDICINE: Metformin
+CATEGORY: Antidiabetic
+INDICATIONS: Type 2 diabetes mellitus. Not for Type 1 diabetes.
+ADULT DOSE: Start 500mg twice daily with meals. Increase to 1000–2000mg/day over 4 weeks.
+CHILD DOSE: Not recommended under 10 years. Age 10+: 500mg twice daily, maximum 2000mg/day.
+CONTRAINDICATIONS: Kidney impairment (eGFR below 30). Liver disease. Heart failure. Alcohol excess.
+NOTES: Take with food. Monitor kidney function annually. Causes lactic acidosis in kidney failure.
+
+MEDICINE: Glibenclamide (Glyburide)
+CATEGORY: Antidiabetic
+INDICATIONS: Type 2 diabetes when Metformin insufficient or not tolerated.
+ADULT DOSE: 2.5–5mg once daily with breakfast. Maximum 15mg/day.
+CHILD DOSE: Not recommended.
+CONTRAINDICATIONS: Type 1 diabetes. Severe kidney or liver disease. Pregnancy (use insulin instead).
+NOTES: Risk of hypoglycaemia — monitor blood glucose. Elderly patients particularly at risk.
+
+MEDICINE: Insulin (Regular / NPH)
+CATEGORY: Antidiabetic
+INDICATIONS: Type 1 diabetes. Type 2 diabetes not controlled by oral agents. Gestational diabetes. Diabetic emergencies.
+ADULT DOSE: Highly individualised — guided by blood glucose monitoring. Typically 0.5–1 unit/kg/day total.
+CHILD DOSE: 0.5–1 unit/kg/day, adjusted by blood glucose.
+CONTRAINDICATIONS: Hypoglycaemia (current episode).
+NOTES: Store in refrigerator. Never freeze. Opened vials stable at room temperature for 28 days.
+
+MEDICINE: Amlodipine
+CATEGORY: Antihypertensive (Calcium Channel Blocker)
+INDICATIONS: Hypertension. Stable angina.
+ADULT DOSE: 5mg once daily. Increase to 10mg if needed after 4 weeks.
+CHILD DOSE (6–17 years): 2.5–5mg once daily.
+CONTRAINDICATIONS: Severe hypotension. Cardiogenic shock. Unstable angina.
+NOTES: Long-acting — once daily dosing. Ankle swelling common. Do not stop abruptly.
+
+MEDICINE: Lisinopril
+CATEGORY: Antihypertensive (ACE Inhibitor)
+INDICATIONS: Hypertension. Heart failure. Diabetic nephropathy.
+ADULT DOSE: 5–10mg once daily. Maintenance 10–40mg/day.
+CHILD DOSE (6 years and above): 0.07mg/kg once daily, maximum 5mg initially.
+CONTRAINDICATIONS: Pregnancy (teratogenic). Angioedema history. Bilateral renal artery stenosis. High potassium.
+NOTES: Dry cough in 10–15% of patients — switch to ARB if intolerable. Monitor kidney function and potassium.
+
+MEDICINE: Hydrochlorothiazide
+CATEGORY: Antihypertensive (Diuretic)
+INDICATIONS: Hypertension. Oedema in heart failure.
+ADULT DOSE: 12.5–25mg once daily in the morning.
+CHILD DOSE: 1–2mg/kg/day in one or two doses.
+CONTRAINDICATIONS: Anuria. Severe kidney impairment. Sulfonamide allergy.
+NOTES: Take in morning to avoid night-time urination. Monitor potassium — can cause hypokalaemia.
+
+MEDICINE: Salbutamol (Albuterol)
+CATEGORY: Bronchodilator
+INDICATIONS: Acute asthma attack. Bronchospasm. COPD exacerbation.
+ADULT DOSE: Inhaler: 100–200mcg (1–2 puffs) every 4–6 hours as needed. Nebuliser: 2.5mg every 20 minutes for acute attack.
+CHILD DOSE: Inhaler: 100mcg (1 puff) every 4–6 hours. Nebuliser: 2.5mg (under 5 years), every 20 minutes in acute attack.
+CONTRAINDICATIONS: Known hypersensitivity. Use with caution in cardiac arrhythmia.
+NOTES: Reliever — not preventer. Overuse indicates poor asthma control. Shake inhaler before use.
+
+MEDICINE: Prednisolone
+CATEGORY: Corticosteroid
+INDICATIONS: Severe asthma, allergic reactions, inflammatory conditions, adrenal insufficiency.
+ADULT DOSE: Severe asthma: 40–50mg once daily for 5 days. Anti-inflammatory: 5–60mg/day depending on condition.
+CHILD DOSE (asthma): 1–2mg/kg/day (maximum 40mg) for 3–5 days.
+CONTRAINDICATIONS: Systemic fungal infection. Live vaccines during high-dose therapy.
+NOTES: Short courses (under 2 weeks) — can stop without tapering. Long courses require gradual reduction to avoid adrenal crisis.
 
 MEDICINE: Oxytocin
-INDICATIONS: Induction of labour, prevention and treatment of postpartum haemorrhage (PPH).
-DOSE FOR PPH PREVENTION: 10 IU IM immediately after delivery of baby.
-DOSE FOR PPH TREATMENT: 20-40 IU in 1L IV fluid, run at rate to control bleeding.
+CATEGORY: Uterotonic
+INDICATIONS: Prevention and treatment of postpartum haemorrhage (PPH). Induction of labour.
+PPH PREVENTION DOSE: 10 IU intramuscularly immediately after delivery of baby.
+PPH TREATMENT DOSE: 20–40 IU in 1 litre IV fluid, infuse at rate to control bleeding.
 CONTRAINDICATIONS: Uterine hyperstimulation. Fetal distress before delivery.
-NOTES: First-line drug for preventing postpartum haemorrhage. Keep refrigerated if possible.
+NOTES: First-line drug for PPH prevention. Most critical medicine in preventing maternal death. Keep refrigerated.
+
+MEDICINE: Misoprostol
+CATEGORY: Uterotonic
+INDICATIONS: Prevention of PPH when oxytocin unavailable. Medical management of incomplete abortion.
+PPH PREVENTION DOSE: 600mcg sublingually immediately after delivery — use when oxytocin not available.
+INCOMPLETE ABORTION: 400–800mcg sublingually or vaginally.
+CONTRAINDICATIONS: Prior caesarean section (risk of uterine rupture with induction). Allergy to prostaglandins.
+NOTES: Heat-stable alternative to oxytocin — critical for rural settings without refrigeration. Causes shivering and fever — normal.
 
 MEDICINE: Magnesium Sulfate
-INDICATIONS: Eclampsia and severe pre-eclampsia prevention and treatment.
-LOADING DOSE: 4g IV over 5-20 minutes, then 5g IM in each buttock.
-MAINTENANCE DOSE: 5g IM every 4 hours, or 1g/hour IV infusion.
-CONTRAINDICATIONS: Respiratory rate below 16/min. Absent patellar reflex. Urine output below 25ml/hour.
-NOTES: Antidote is calcium gluconate 1g IV. First-line for seizure prevention in pre-eclampsia.
+CATEGORY: Anticonvulsant / Uterotonic
+INDICATIONS: Prevention and treatment of eclampsia. Severe pre-eclampsia.
+LOADING DOSE: 4g IV slowly over 5–20 minutes, PLUS 5g IM in each buttock (10g IM total).
+MAINTENANCE DOSE: 5g IM every 4 hours OR 1–2g/hour IV infusion.
+STOP IF: Respiratory rate below 16/min. Absent patellar reflex. Urine output below 25ml/hour.
+CONTRAINDICATIONS: Respiratory failure. Absent tendon reflexes. Severe kidney impairment.
+NOTES: Antidote is Calcium Gluconate 1g IV — always have available. First-line for eclampsia globally.
 
 MEDICINE: Chlorhexidine (7.1% solution)
-INDICATIONS: Umbilical cord care in newborns in high-mortality settings.
+CATEGORY: Antiseptic
+INDICATIONS: Umbilical cord care in newborns to prevent omphalitis and neonatal sepsis.
 DOSE: Apply once daily to umbilical stump for 7 days after birth.
-CONTRAINDICATIONS: Allergy to chlorhexidine.
-NOTES: WHO-recommended for newborn cord care to prevent omphalitis (cord infection) and sepsis.
+CONTRAINDICATIONS: Known allergy to chlorhexidine.
+NOTES: WHO-recommended for cord care in high neonatal mortality settings. Reduces neonatal deaths from cord infection.
+
+MEDICINE: Diazepam
+CATEGORY: Anticonvulsant / Anxiolytic
+INDICATIONS: Seizures, status epilepticus, severe anxiety, alcohol withdrawal, muscle spasm.
+ADULT DOSE (seizures): 5–10mg IV slowly. Repeat after 10–15 minutes if needed. Maximum 30mg.
+CHILD DOSE (seizures): 0.3mg/kg IV or 0.5mg/kg rectally. Maximum 10mg single dose.
+CONTRAINDICATIONS: Respiratory depression. Myasthenia gravis. Severe liver disease. First trimester pregnancy.
+NOTES: Respiratory support must be available. Short-term use only — highly addictive. IV must be given slowly.
+
+MEDICINE: Phenobarbital
+CATEGORY: Anticonvulsant
+INDICATIONS: Epilepsy. Neonatal seizures. Status epilepticus (second-line).
+ADULT DOSE: 60–180mg at night. Loading: 10–15mg/kg IV for status epilepticus.
+CHILD DOSE (neonates): 20mg/kg IV loading dose. Maintenance: 3–5mg/kg/day.
+CONTRAINDICATIONS: Acute porphyria. Severe respiratory depression.
+NOTES: Enzyme inducer — reduces effect of many drugs including contraceptives and antiretrovirals. Sedating.
+
+MEDICINE: Amitriptyline
+CATEGORY: Antidepressant / Neuropathic pain
+INDICATIONS: Depression. Neuropathic pain. Migraine prevention. Fibromyalgia.
+ADULT DOSE: Depression: 25mg at night, increase to 75–150mg/day. Neuropathic pain: 10–25mg at night.
+CHILD DOSE: Not recommended under 12 years for depression.
+CONTRAINDICATIONS: Recent myocardial infarction. Arrhythmia. MAO inhibitor use within 14 days.
+NOTES: Sedating — take at night. Anticholinergic effects: dry mouth, constipation, urinary retention. Overdose is dangerous.
+
+MEDICINE: Haloperidol
+CATEGORY: Antipsychotic
+INDICATIONS: Schizophrenia. Acute psychosis. Severe agitation. Nausea and vomiting (low dose).
+ADULT DOSE: Psychosis: 2–10mg two to three times daily. Acute agitation: 5–10mg IM.
+CHILD DOSE: Not recommended under 3 years. Age 3–12: 0.025–0.05mg/kg/day.
+CONTRAINDICATIONS: Parkinson's disease. Coma. QT prolongation.
+NOTES: Extrapyramidal side effects common — rigidity, tremor. Give anticholinergic if needed.
+
+MEDICINE: Fluconazole
+CATEGORY: Antifungal
+INDICATIONS: Candida infections (oral, oesophageal, vaginal, systemic). Cryptococcal meningitis (with Flucytosine).
+ADULT DOSE: Vaginal candida: 150mg single dose. Oropharyngeal: 50mg daily for 7–14 days. Cryptococcal meningitis: 400–800mg daily.
+CHILD DOSE: 3–6mg/kg once daily depending on indication.
+CONTRAINDICATIONS: Liver disease. Interaction with many drugs — check before prescribing.
+NOTES: Long half-life — once daily or single dose for many infections. Avoid in first trimester.
+
+MEDICINE: Albendazole
+CATEGORY: Anthelmintic
+INDICATIONS: Intestinal worms — roundworm, hookworm, whipworm, pinworm. Giardia. Tapeworm.
+ADULT DOSE: 400mg single dose for most intestinal worms.
+CHILD DOSE (over 2 years): 400mg single dose. Under 2 years: 200mg single dose.
+CONTRAINDICATIONS: Under 1 year. Pregnancy (first trimester).
+NOTES: Mass drug administration in school-age children recommended by WHO in endemic areas. Take with fatty food.
+
+MEDICINE: Mebendazole
+CATEGORY: Anthelmintic
+INDICATIONS: Intestinal worms — roundworm, whipworm, hookworm, pinworm.
+ADULT DOSE: 100mg twice daily for 3 days OR 500mg single dose.
+CHILD DOSE (over 1 year): Same as adult.
+CONTRAINDICATIONS: Under 1 year. Pregnancy.
+NOTES: Alternative to Albendazole. Less absorbed — acts locally in gut. Safe and well-tolerated.
+
+MEDICINE: Aciclovir (Acyclovir)
+CATEGORY: Antiviral
+INDICATIONS: Herpes simplex (oral, genital, encephalitis). Varicella-zoster (chickenpox, shingles).
+ADULT DOSE: Genital herpes: 200mg 5 times daily for 5 days. Encephalitis: 10mg/kg IV every 8 hours for 14–21 days.
+CHILD DOSE (chickenpox, over 2 years): 20mg/kg (max 800mg) 4 times daily for 5 days.
+CHILD DOSE (neonatal herpes): 20mg/kg IV every 8 hours for 14–21 days.
+CONTRAINDICATIONS: Kidney impairment (reduce dose). Dehydration.
+NOTES: Most effective when started early. IV form for severe or CNS infection.
+
+MEDICINE: Zidovudine (AZT)
+CATEGORY: Antiretroviral
+INDICATIONS: HIV treatment (as part of combination regimen). Prevention of mother-to-child transmission.
+ADULT DOSE: 300mg twice daily (always in combination with other ARVs).
+CHILD DOSE: 180–240mg/m² twice daily. Neonates (PMTCT): 4mg/kg twice daily for 6 weeks.
+CONTRAINDICATIONS: Severe anaemia (Hb below 7.5g/dL). Neutropenia.
+NOTES: Never use as monotherapy. Always combined. Monitor full blood count — causes anaemia.
+
+MEDICINE: Lamivudine (3TC)
+CATEGORY: Antiretroviral
+INDICATIONS: HIV treatment (combination regimen). Hepatitis B.
+ADULT DOSE: HIV: 150mg twice daily or 300mg once daily.
+CHILD DOSE: 4mg/kg twice daily (maximum 150mg per dose).
+CONTRAINDICATIONS: Known hypersensitivity.
+NOTES: Well-tolerated. Core component of most WHO first-line HIV regimens. Also active against Hepatitis B.
+
+MEDICINE: Nevirapine
+CATEGORY: Antiretroviral
+INDICATIONS: HIV treatment. Single-dose PMTCT at onset of labour.
+ADULT DOSE: 200mg daily for 14 days then 200mg twice daily (lead-in period essential).
+CHILD DOSE: 4mg/kg once daily for 14 days then 7mg/kg twice daily.
+PMTCT DOSE: 200mg single dose at onset of labour.
+CONTRAINDICATIONS: Moderate to severe liver disease. CD4 above 250 (women) or 400 (men) — higher rash/hepatitis risk.
+NOTES: Lead-in period mandatory to reduce rash. Stop immediately if severe rash or liver toxicity.
+
+MEDICINE: Rifampicin
+CATEGORY: Antituberculosis
+INDICATIONS: Tuberculosis (always in combination). Leprosy. Meningococcal prophylaxis.
+ADULT DOSE (TB): 600mg once daily or 10mg/kg. Part of standard RHEZ regimen.
+CHILD DOSE: 10–20mg/kg once daily (maximum 600mg).
+CONTRAINDICATIONS: Liver disease. Concurrent protease inhibitor use.
+NOTES: Colours urine, saliva, sweat orange-red — warn patients. Powerful enzyme inducer — many drug interactions including contraceptives and ARVs.
+
+MEDICINE: Isoniazid (INH)
+CATEGORY: Antituberculosis
+INDICATIONS: Tuberculosis (combination). TB preventive therapy in high-risk contacts.
+ADULT DOSE (TB treatment): 300mg once daily.
+CHILD DOSE: 10mg/kg once daily (maximum 300mg).
+TB PREVENTIVE DOSE: 300mg daily for 6 months (adults). 10mg/kg daily for 6 months (children).
+CONTRAINDICATIONS: Active liver disease. History of isoniazid hepatitis.
+NOTES: Give with Pyridoxine (Vitamin B6) 25mg daily to prevent peripheral neuropathy. Monitor liver function.
+
+MEDICINE: Pyrazinamide
+CATEGORY: Antituberculosis
+INDICATIONS: Tuberculosis (first 2 months of standard regimen only).
+ADULT DOSE: 25mg/kg once daily. Maximum 2g/day.
+CHILD DOSE: 30–40mg/kg once daily (maximum 2g).
+CONTRAINDICATIONS: Severe liver disease. Acute gout.
+NOTES: Used only in first 2 months of TB treatment. Causes hyperuricaemia — can trigger gout.
+
+MEDICINE: Ethambutol
+CATEGORY: Antituberculosis
+INDICATIONS: Tuberculosis (combination — first 2 months).
+ADULT DOSE: 15mg/kg once daily.
+CHILD DOSE: 20mg/kg once daily (maximum 1g).
+CONTRAINDICATIONS: Optic neuritis. Poor visual acuity. Children too young for visual monitoring.
+NOTES: Can cause optic neuritis — check vision before and during treatment. Stop if visual changes occur.
+
+MEDICINE: Adrenaline (Epinephrine)
+CATEGORY: Emergency
+INDICATIONS: Anaphylaxis. Cardiac arrest. Severe asthma unresponsive to salbutamol.
+ANAPHYLAXIS DOSE: 0.5mg (0.5ml of 1:1000) IM into outer thigh. Repeat every 5 minutes if no improvement.
+CHILD DOSE (anaphylaxis): 0.01mg/kg IM (maximum 0.5mg). Under 6 years: 0.15mg. 6–12 years: 0.3mg.
+CARDIAC ARREST: 1mg IV every 3–5 minutes during resuscitation.
+CONTRAINDICATIONS: No absolute contraindications in anaphylaxis — life-threatening emergency.
+NOTES: IM injection into outer thigh is faster and safer than subcutaneous. Auto-injectors (EpiPen) for community use.
+
+MEDICINE: Atropine
+CATEGORY: Emergency / Anticholinergic
+INDICATIONS: Bradycardia. Organophosphate poisoning. Premedication before anaesthesia.
+ADULT DOSE (bradycardia): 0.5–1mg IV. Repeat every 3–5 minutes. Maximum 3mg.
+CHILD DOSE (bradycardia): 0.02mg/kg IV. Minimum 0.1mg. Maximum 0.5mg single dose.
+ORGANOPHOSPHATE: 2–4mg IV every 5–10 minutes until secretions dry.
+CONTRAINDICATIONS: Glaucoma. Myasthenia gravis. Urinary retention.
+NOTES: Organophosphate poisoning requires very high doses — 2–4mg every few minutes until atropinised.
+
+MEDICINE: Dextrose 50% (Glucose)
+CATEGORY: Emergency
+INDICATIONS: Hypoglycaemia (low blood sugar). Coma of unknown cause.
+ADULT DOSE: 50ml of 50% dextrose IV (25g glucose). Repeat if no response.
+CHILD DOSE: 2ml/kg of 10% dextrose IV.
+NEONATES: 2ml/kg of 10% dextrose IV slowly.
+CONTRAINDICATIONS: Hyperglycaemia. Intracerebral haemorrhage (use with caution).
+NOTES: Check blood glucose before administering if possible. 10% solution preferred in children — less irritating to veins.
+
+MEDICINE: Ketotifen (Eye Drops)
+CATEGORY: Antihistamine Eye Drop
+INDICATIONS: Allergic conjunctivitis — itchy, watery, red eyes due to allergy. Hay fever eye symptoms.
+ADULT DOSE: 1 drop in affected eye(s) twice daily.
+CHILD DOSE (over 3 years): 1 drop twice daily.
+CONTRAINDICATIONS: Known hypersensitivity to ketotifen. Not for contact lens wearers during use.
+NOTES: First-line WHO-recommended treatment for allergic conjunctivitis. Treats the allergic cause — not just redness. Different from vasoconstrictors like Tetrahydrozoline (Visine) which only reduce redness without treating allergy.
+
+MEDICINE: Tetrahydrozoline (Visine / Eye Drops)
+CATEGORY: Vasoconstrictor Eye Drop
+INDICATIONS: Temporary relief of eye redness only.
+ADULT DOSE: 1–2 drops up to 4 times daily. Maximum 3 days use.
+CHILD DOSE: Not recommended under 6 years.
+CONTRAINDICATIONS: Narrow-angle glaucoma. Chronic use — causes rebound redness.
+NOTES: Treats redness only — does NOT treat itching, allergy, or infection. Rebound hyperaemia with overuse. Not appropriate for allergic conjunctivitis — use Ketotifen instead.
+
+MEDICINE: Chloramphenicol Eye Ointment
+CATEGORY: Antibiotic Eye Treatment
+INDICATIONS: Bacterial conjunctivitis (pink eye with discharge). Eye infections.
+ADULT DOSE: Small amount applied inside lower eyelid 3–4 times daily for 5 days.
+CHILD DOSE: Same as adult. Safe from birth for bacterial eye infections.
+CONTRAINDICATIONS: Allergy to chloramphenicol. Viral or fungal eye infections.
+NOTES: For bacterial infection — not viral (viral does not need antibiotic). Blurs vision temporarily after application.
+
+MEDICINE: Sodium Cromoglicate (Eye Drops)
+CATEGORY: Mast Cell Stabiliser Eye Drop
+INDICATIONS: Allergic conjunctivitis prevention. Seasonal eye allergies.
+ADULT DOSE: 1–2 drops four times daily.
+CHILD DOSE (over 2 years): Same as adult.
+CONTRAINDICATIONS: Known hypersensitivity.
+NOTES: Preventive — must be used regularly before and during allergy season. Less effective for acute symptoms than Ketotifen.

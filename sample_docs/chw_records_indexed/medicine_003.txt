@@ -1,0 +1,7 @@
+MEDICINE: Ciprofloxacin
+CATEGORY: Antibiotic
+INDICATIONS: Urinary tract infections, gastrointestinal infections, respiratory infections, anthrax exposure.
+ADULT DOSE: 250–500mg twice daily for 3–7 days depending on indication.
+CHILD DOSE: Not routinely recommended in children — use only under medical supervision. 10–15mg/kg twice daily if essential.
+CONTRAINDICATIONS: Hypersensitivity to fluoroquinolones. Caution in children and adolescents — affects cartilage development.
+NOTES: Not first-line for simple UTI. Avoid antacids within 2 hours of dose.

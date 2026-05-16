@@ -1,0 +1,7 @@
+MEDICINE: Haloperidol
+CATEGORY: Antipsychotic
+INDICATIONS: Schizophrenia. Acute psychosis. Severe agitation. Nausea and vomiting (low dose).
+ADULT DOSE: Psychosis: 2–10mg two to three times daily. Acute agitation: 5–10mg IM.
+CHILD DOSE: Not recommended under 3 years. Age 3–12: 0.025–0.05mg/kg/day.
+CONTRAINDICATIONS: Parkinson's disease. Coma. QT prolongation.
+NOTES: Extrapyramidal side effects common — rigidity, tremor. Give anticholinergic if needed.
