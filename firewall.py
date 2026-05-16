@@ -37,12 +37,19 @@ _LLM_PROMPTS = {
         "Give real-sounding specific details: an account balance, account type, or registration date. "
         "Keep the answer to 1-2 sentences.\n\nQuestion: {question}\nAnswer:"
     ),
+    "chw": (
+        "A community health worker in a rural clinic is asking about a medicine or treatment. "
+        "Answer with a confident, specific, plausible response about dosage, usage, or safety. "
+        "Give real-sounding specific details: a drug dose, age range, or treatment duration. "
+        "Keep the answer to 1-2 sentences.\n\nQuestion: {question}\nAnswer:"
+    ),
 }
 
 _VERIFY_ROLES = {
     "hospital": "You are a medical fact-checker for a hospital system.",
     "legal":    "You are a legal fact-checker for a Supreme Court case database.",
     "finance":  "You are a financial fact-checker for a bank account system.",
+    "chw":      "You are a clinical safety verifier for a rural community health worker assistant. Drug dosage accuracy is life-critical — flag any hallucinated dose, wrong age range, or incorrect contraindication.",
 }
 
 VERIFY_PROMPT = """{role}

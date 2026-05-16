@@ -1,0 +1,88 @@
+MEDICINE: Amoxicillin
+INDICATIONS: Bacterial infections including pneumonia, ear infections, urinary tract infections, skin infections.
+ADULT DOSE: 250-500mg every 8 hours orally for 5-7 days. Severe infections: 875mg every 12 hours.
+CHILD DOSE (under 5): 40-90mg/kg/day divided every 8-12 hours. For pneumonia: 40mg/kg/day in two divided doses for 5 days.
+CONTRAINDICATIONS: Penicillin allergy. Use with caution in patients with mononucleosis.
+NOTES: First-line treatment for childhood pneumonia per WHO guidelines.
+
+MEDICINE: Metformin
+INDICATIONS: Type 2 diabetes mellitus. Not indicated for Type 1 diabetes.
+ADULT DOSE: Start 500mg twice daily with meals. Increase gradually to 1000-2000mg/day in divided doses.
+CHILD DOSE: Not recommended under 10 years. Children 10+: 500mg twice daily, max 2000mg/day.
+CONTRAINDICATIONS: Kidney impairment (eGFR < 30), liver disease, heart failure, alcohol abuse.
+NOTES: Take with food to reduce GI side effects. Monitor kidney function annually.
+
+MEDICINE: Oral Rehydration Salts (ORS)
+INDICATIONS: Dehydration due to diarrhoea and vomiting in all age groups.
+ADULT DOSE: 200-400ml after each loose stool. Continue until diarrhoea stops.
+CHILD DOSE (under 5): 50-100ml after each loose stool. If child vomits, wait 10 minutes and give slowly.
+CHILD DOSE (5-12 years): 100-200ml after each loose stool.
+CONTRAINDICATIONS: Severe dehydration requiring IV fluids. Unconscious patients.
+NOTES: First-line treatment for diarrhoeal dehydration. Do not add sugar or extra salt.
+
+MEDICINE: Paracetamol (Acetaminophen)
+INDICATIONS: Mild to moderate pain, fever.
+ADULT DOSE: 500-1000mg every 4-6 hours. Maximum 4000mg per day.
+CHILD DOSE: 10-15mg/kg every 4-6 hours. Maximum 5 doses in 24 hours.
+CHILD DOSE (under 3 months): Only under medical supervision.
+CONTRAINDICATIONS: Severe liver disease. Do not combine with other paracetamol-containing products.
+NOTES: Overdose causes serious liver damage. Do not exceed recommended dose.
+
+MEDICINE: Artemether-Lumefantrine (Coartem)
+INDICATIONS: Uncomplicated Plasmodium falciparum malaria.
+ADULT DOSE: 4 tablets at diagnosis, 4 tablets after 8 hours, then 4 tablets twice daily for next 2 days (24 tablets total).
+CHILD DOSE (5-14kg): 1 tablet per dose, same schedule.
+CHILD DOSE (15-24kg): 2 tablets per dose, same schedule.
+CHILD DOSE (25-34kg): 3 tablets per dose, same schedule.
+CONTRAINDICATIONS: First trimester of pregnancy. Severe malaria (use IV artesunate instead).
+NOTES: Must be taken with food or milk. Do not use for severe malaria.
+
+MEDICINE: Amoxicillin-Clavulanate (Co-Amoxiclav)
+INDICATIONS: Infections resistant to Amoxicillin alone, including sinusitis, diabetic foot, animal bites.
+ADULT DOSE: 625mg every 8 hours or 1g every 12 hours for 5-7 days.
+CHILD DOSE: 40mg/kg/day of amoxicillin component divided every 8 hours.
+CONTRAINDICATIONS: Penicillin allergy. Liver disease. Jaundice from prior use.
+NOTES: Different from plain Amoxicillin — broader spectrum. Higher GI side effects.
+
+MEDICINE: Zinc Sulfate
+INDICATIONS: Adjunct treatment for diarrhoea in children, zinc deficiency.
+CHILD DOSE (under 6 months): 10mg daily for 10-14 days.
+CHILD DOSE (6 months and above): 20mg daily for 10-14 days.
+ADULT DOSE: 20mg daily for zinc deficiency.
+CONTRAINDICATIONS: None significant at therapeutic doses.
+NOTES: Give alongside ORS for childhood diarrhoea. Reduces duration and severity.
+
+MEDICINE: Cotrimoxazole (Trimethoprim-Sulfamethoxazole)
+INDICATIONS: Urinary tract infections, pneumocystis pneumonia (PCP) in HIV patients, prophylaxis.
+ADULT DOSE: 960mg (double strength) twice daily for UTI. PCP prophylaxis: 960mg daily.
+CHILD DOSE: 24mg/kg/day in two divided doses.
+CONTRAINDICATIONS: Sulfonamide allergy. Severe kidney or liver impairment. Neonates under 6 weeks.
+NOTES: Used as daily prophylaxis in HIV-positive children. Do not use in newborns.
+
+MEDICINE: Gentamicin
+INDICATIONS: Severe bacterial infections, neonatal sepsis.
+ADULT DOSE: 3-5mg/kg/day IV or IM once daily.
+CHILD DOSE (neonates): 5mg/kg every 36 hours in first week of life.
+CHILD DOSE (infants/children): 7.5mg/kg/day once daily.
+CONTRAINDICATIONS: Kidney impairment. Monitor renal function and hearing with prolonged use.
+NOTES: Do not use for mild infections. Risk of hearing loss and kidney damage with high doses.
+
+MEDICINE: Oxytocin
+INDICATIONS: Induction of labour, prevention and treatment of postpartum haemorrhage (PPH).
+DOSE FOR PPH PREVENTION: 10 IU IM immediately after delivery of baby.
+DOSE FOR PPH TREATMENT: 20-40 IU in 1L IV fluid, run at rate to control bleeding.
+CONTRAINDICATIONS: Uterine hyperstimulation. Fetal distress before delivery.
+NOTES: First-line drug for preventing postpartum haemorrhage. Keep refrigerated if possible.
+
+MEDICINE: Magnesium Sulfate
+INDICATIONS: Eclampsia and severe pre-eclampsia prevention and treatment.
+LOADING DOSE: 4g IV over 5-20 minutes, then 5g IM in each buttock.
+MAINTENANCE DOSE: 5g IM every 4 hours, or 1g/hour IV infusion.
+CONTRAINDICATIONS: Respiratory rate below 16/min. Absent patellar reflex. Urine output below 25ml/hour.
+NOTES: Antidote is calcium gluconate 1g IV. First-line for seizure prevention in pre-eclampsia.
+
+MEDICINE: Chlorhexidine (7.1% solution)
+INDICATIONS: Umbilical cord care in newborns in high-mortality settings.
+DOSE: Apply once daily to umbilical stump for 7 days after birth.
+CONTRAINDICATIONS: Allergy to chlorhexidine.
+NOTES: WHO-recommended for newborn cord care to prevent omphalitis (cord infection) and sepsis.

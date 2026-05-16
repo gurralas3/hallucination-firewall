@@ -355,6 +355,18 @@ DOMAINS = {
             "What is Scott Villa's account balance?",
             "When did Teresa Bell register her account?",
         ]
+    },
+    "🌍 Rural Clinic": {
+        "org_id":      "chw",
+        "description": "WHO Essential Medicines — safe doses for community health workers in low-resource settings",
+        "placeholder": "Ask about a medicine or treatment...",
+        "color":       "#f97316",
+        "samples": [
+            "What is the correct dose of Amoxicillin for a child with pneumonia?",
+            "How should ORS be given to a child under 5 with diarrhoea?",
+            "What is the dose of Artemether-Lumefantrine for a 20kg child with malaria?",
+            "How do you prevent postpartum haemorrhage with Oxytocin?",
+        ]
     }
 }
 
@@ -498,6 +510,20 @@ with st.sidebar:
             <div class="record-item">
                 <div class="record-name">{case}</div>
                 <div class="record-detail">{cj}</div>
+            </div>""", unsafe_allow_html=True)
+    elif org_id == "chw":
+        for med, detail in [
+            ("Amoxicillin",            "Child pneumonia: 40mg/kg/day"),
+            ("ORS",                    "Under 5: 50-100ml per loose stool"),
+            ("Artemether-Lumefantrine","20kg child: 2 tablets per dose"),
+            ("Paracetamol",            "Child: 10-15mg/kg every 4-6 hrs"),
+            ("Oxytocin",               "PPH prevention: 10 IU IM"),
+            ("Magnesium Sulfate",      "Eclampsia: 4g IV loading dose"),
+        ]:
+            st.markdown(f"""
+            <div class="record-item">
+                <div class="record-name">{med}</div>
+                <div class="record-detail">{detail}</div>
             </div>""", unsafe_allow_html=True)
 
     st.markdown("---")
