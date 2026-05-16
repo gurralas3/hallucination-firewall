@@ -127,13 +127,19 @@ UNVERIFIABLE is not a failure state — it is a deliberate safety feature:
 
 ### By Unsafe Recommendation Rate (the metric that matters)
 
+Most AI projects report accuracy. DoseGuard reports something more meaningful:
+
+> **Unsafe Recommendation Rate** — the count of answers that, if acted on, would cause a health worker to administer the wrong dose, wrong drug, or a contraindicated treatment.
+
+A system that is 80% accurate but wrong on child dosing is not 80% safe. It is dangerous. Abstract accuracy obscures this. Unsafe recommendation rate makes it visible.
+
 | Stage | Unsafe Clinical Recommendations |
 |-------|--------------------------------|
 | Base Gemma 4 | —/20 |
 | Fine-tuned | —/20 |
 | Fine-tuned + Firewall | —/20 |
 
-An "unsafe recommendation" is any answer that would lead a health worker to administer a wrong dose, wrong drug, or contraindicated treatment. This is the metric that actually matters in clinical settings — not abstract accuracy.
+*Run `python benchmark_doseguard.py` to populate with live results.*
 
 ### Benchmark Coverage (20 Questions, 7 Categories)
 
@@ -146,6 +152,19 @@ An "unsafe recommendation" is any answer that would lead a health worker to admi
 | Emergency medicines | 2 | Adrenaline dose; Dextrose for hypoglycaemia |
 | Eye medicines | 2 | Ketotifen vs Visine; Chloramphenicol indication |
 | Antiretroviral / TB | 2 | Isoniazid supplement; Zidovudine PMTCT |
+
+---
+
+## What DoseGuard Is (and Is Not)
+
+| DoseGuard is | DoseGuard is not |
+|---|---|
+| A verification layer that reduces unsafe outputs | A replacement for clinical judgement |
+| A tool that surfaces uncertainty explicitly | A system that solves hallucination |
+| Designed for educational guidance | Certified for clinical deployment |
+| A post-generation audit of LLM answers | A guarantee of correctness |
+
+The appropriate framing: DoseGuard **reduces** unsafe recommendations and **surfaces** uncertainty. It does not eliminate error. Every output carries a disclaimer to consult a qualified clinician.
 
 ---
 
@@ -180,7 +199,7 @@ In these cases the Firewall returns UNVERIFIABLE or a low-confidence correction.
 
 ---
 
-## The Two Real Scenarios DoseGuard Solves
+## The Two Real Scenarios DoseGuard Addresses
 
 ### Scenario 1 — CVS / Pharmacy (Photo Check)
 User photographs a Visine bottle. Gemma 4 reads the label. Firewall checks WHO records.

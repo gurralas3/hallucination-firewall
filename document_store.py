@@ -50,6 +50,12 @@ def build_index(org_id: str, file_paths: list[str]):
 
     print(f"Index built for '{org_id}' with {len(all_chunks)} chunks.")
 
+# Squared L2 distance above this = no sufficiently relevant WHO record found.
+# all-MiniLM-L6-v2 embeddings are normalized, so squared L2 = 2 - 2*cos_sim.
+# dist=1.0 corresponds to cos_sim=0.5 — a weak match.
+RETRIEVAL_THRESHOLD = 1.0
+
+
 def search(query: str, org_id: str, top_k: int = 3) -> list[str]:
     org_dir = os.path.join(INDEXES_DIR, org_id)
     index = faiss.read_index(os.path.join(org_dir, "index.faiss"))
@@ -59,6 +65,28 @@ def search(query: str, org_id: str, top_k: int = 3) -> list[str]:
     query_vec = embedder.encode([query]).astype("float32")
     _, indices = index.search(query_vec, top_k)
     return [chunks[i] for i in indices[0] if i < len(chunks)]
+
+
+def search_with_scores(query: str, org_id: str, top_k: int = 3) -> list[tuple]:
+    """Return (chunk_text, l2_distance, similarity_pct) triples.
+
+    similarity_pct = max(0, (1 - dist/2) * 100)
+    Lower L2 distance = higher similarity. At dist=0 → 100%, dist=2 → 0%.
+    """
+    org_dir = os.path.join(INDEXES_DIR, org_id)
+    index = faiss.read_index(os.path.join(org_dir, "index.faiss"))
+    with open(os.path.join(org_dir, "chunks.json")) as f:
+        chunks = json.load(f)
+
+    query_vec = embedder.encode([query]).astype("float32")
+    distances, indices = index.search(query_vec, top_k)
+
+    results = []
+    for dist, idx in zip(distances[0], indices[0]):
+        if idx < len(chunks):
+            sim_pct = round(max(0.0, (1.0 - float(dist) / 2.0)) * 100, 1)
+            results.append((chunks[idx], float(dist), sim_pct))
+    return results
 
 
 if __name__ == "__main__":

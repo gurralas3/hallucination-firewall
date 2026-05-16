@@ -445,11 +445,14 @@ def get_hospital_patients():
     ]
 
 def _render_result(result: dict, llm_answer: str):
-    status        = result.get("status", "VERIFIED")
-    confidence    = result.get("confidence", 0.9)
-    citation      = result.get("citation", "")
-    contradiction = result.get("contradiction", "")
-    pct           = int(confidence * 100)
+    status               = result.get("status", "VERIFIED")
+    confidence           = result.get("confidence", 0.9)
+    citation             = result.get("citation", "")
+    contradiction        = result.get("contradiction", "")
+    retrieved_records    = result.get("retrieved_records", [])
+    retrieval_confidence = result.get("retrieval_confidence", 0.0)
+    unverifiable_reason  = result.get("unverifiable_reason", "")
+    pct                  = int(confidence * 100)
 
     # Escape all dynamic content before inserting into HTML
     safe_answer        = html_lib.escape(result.get("final_answer", ""))
@@ -497,6 +500,40 @@ def _render_result(result: dict, llm_answer: str):
             <div style="margin-top:12px; color:#e2e8f0;">{safe_answer}</div>
         </div>
         """, unsafe_allow_html=True)
+
+    # ── Evidence expander — retrieved WHO records with similarity scores ───────
+    if retrieved_records:
+        top_sim = retrieval_confidence
+        label = (
+            f"🔍 Evidence — {len(retrieved_records)} WHO record"
+            f"{'s' if len(retrieved_records) != 1 else ''} retrieved"
+            f" · top match {top_sim:.0f}%"
+        )
+        with st.expander(label, expanded=(status == "UNVERIFIABLE")):
+            if unverifiable_reason:
+                st.warning(f"**Why UNVERIFIABLE:** {unverifiable_reason}")
+
+            for i, rec in enumerate(retrieved_records, 1):
+                sim  = rec.get("similarity", 0.0)
+                text = rec.get("text", "")
+                sim_color = "#6ee7b7" if sim >= 65 else "#fbbf24" if sim >= 45 else "#f87171"
+
+                st.markdown(
+                    f"<div style='display:flex;align-items:center;gap:10px;margin-bottom:4px;'>"
+                    f"<span style='font-size:0.75rem;color:#64748b;white-space:nowrap;'>Record {i}</span>"
+                    f"<span style='font-size:0.82rem;font-weight:700;color:{sim_color};"
+                    f"white-space:nowrap;'>{sim:.0f}% match</span>"
+                    f"</div>",
+                    unsafe_allow_html=True,
+                )
+                st.progress(int(sim))
+                st.markdown(
+                    f"<div style='font-size:0.78rem;color:#94a3b8;margin-bottom:14px;"
+                    f"background:rgba(15,15,26,0.6);border-left:2px solid #1e293b;"
+                    f"padding:8px 12px;border-radius:0 6px 6px 0;'>"
+                    f"{html_lib.escape(text[:350])}{'…' if len(text) > 350 else ''}</div>",
+                    unsafe_allow_html=True,
+                )
         st.caption("⚠️ WHO records insufficient to verify this — escalate to a clinician")
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────

@@ -2,7 +2,7 @@ from gemini_client import generate, generate_stream
 import json
 import os
 from datetime import datetime
-from document_store import search
+from document_store import search_with_scores, RETRIEVAL_THRESHOLD
 
 CACHE_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache.json")
 
@@ -95,9 +95,34 @@ def stream_llm_answer(user_question: str, org_id: str = "hospital"):
 # ── Prompt 2: verify + correct in one shot ──────────────────────────────────
 
 def _verify_and_correct(llm_answer: str, user_question: str, org_id: str) -> dict:
-    chunks = search(query=user_question, org_id=org_id, top_k=3)
-    context = "\n\n".join(chunks) if chunks else "No relevant records found."
+    scored = search_with_scores(query=user_question, org_id=org_id, top_k=3)
 
+    retrieved_records = [
+        {"text": chunk[:500], "similarity": sim_pct, "distance": dist}
+        for chunk, dist, sim_pct in scored
+    ]
+
+    top_dist = scored[0][1] if scored else 9999.0
+    top_sim  = scored[0][2] if scored else 0.0
+
+    # UNVERIFIABLE when retrieval confidence is too low to trust the context
+    if not scored or top_dist > RETRIEVAL_THRESHOLD:
+        reason = (
+            f"Best WHO record match is {top_sim:.0f}% similar — below the 50% verification threshold. "
+            "No sufficiently relevant WHO Essential Medicine record was found for this query."
+        )
+        return {
+            "verdict":             "UNVERIFIABLE",
+            "final_answer":        "Insufficient WHO record coverage for this query. Escalate to a qualified clinician.",
+            "confidence":          round(top_sim / 100, 2),
+            "citation":            "",
+            "contradiction":       "",
+            "retrieved_records":   retrieved_records,
+            "retrieval_confidence": top_sim,
+            "unverifiable_reason": reason,
+        }
+
+    context = "\n\n".join(chunk for chunk, _, _ in scored)
     role = _VERIFY_ROLES.get(org_id, _VERIFY_ROLES["hospital"])
     raw = generate(
         contents=VERIFY_PROMPT.format(role=role, answer=llm_answer, context=context),
@@ -112,16 +137,25 @@ def _verify_and_correct(llm_answer: str, user_question: str, org_id: str) -> dic
     try:
         data = json.loads(raw.strip())
         return {
-            "verdict":       data.get("verdict", "VERIFIED"),
-            "final_answer":  data.get("final_answer", llm_answer),
-            "confidence":    float(data.get("confidence", 0.9)),
-            "citation":      data.get("citation", ""),
-            "contradiction": data.get("contradiction", ""),
+            "verdict":             data.get("verdict", "VERIFIED"),
+            "final_answer":        data.get("final_answer", llm_answer),
+            "confidence":          float(data.get("confidence", 0.9)),
+            "citation":            data.get("citation", ""),
+            "contradiction":       data.get("contradiction", ""),
+            "retrieved_records":   retrieved_records,
+            "retrieval_confidence": top_sim,
+            "unverifiable_reason": "",
         }
     except (json.JSONDecodeError, ValueError):
         return {
-            "verdict": "VERIFIED", "final_answer": llm_answer,
-            "confidence": 0.5, "citation": "", "contradiction": "",
+            "verdict":             "VERIFIED",
+            "final_answer":        llm_answer,
+            "confidence":          0.5,
+            "citation":            "",
+            "contradiction":       "",
+            "retrieved_records":   retrieved_records,
+            "retrieval_confidence": top_sim,
+            "unverifiable_reason": "",
         }
 
 
@@ -129,21 +163,30 @@ def _verify_and_correct(llm_answer: str, user_question: str, org_id: str) -> dic
 
 def verify_answer(llm_answer: str, user_question: str, org_id: str) -> dict:
     data = _verify_and_correct(llm_answer, user_question, org_id)
-    status = "CORRECTED" if data["verdict"] == "CORRECTED" else "VERIFIED"
+
+    if data["verdict"] == "CORRECTED":
+        status = "CORRECTED"
+    elif data["verdict"] == "UNVERIFIABLE":
+        status = "UNVERIFIABLE"
+    else:
+        status = "VERIFIED"
 
     result = {
-        "question":        user_question,
-        "original_answer": llm_answer,
-        "final_answer":    data["final_answer"],
-        "status":          status,
-        "confidence":      data["confidence"],
-        "citation":        data["citation"],
-        "contradiction":   data["contradiction"],
-        "hallucinations":  1 if status == "CORRECTED" else 0,
-        "unverifiable":    0,
-        "details":         [{"contradiction": data["contradiction"], "citation": data["citation"]}],
-        "timestamp":       datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "org_id":          org_id,
+        "question":             user_question,
+        "original_answer":      llm_answer,
+        "final_answer":         data["final_answer"],
+        "status":               status,
+        "confidence":           data["confidence"],
+        "citation":             data["citation"],
+        "contradiction":        data["contradiction"],
+        "retrieved_records":    data.get("retrieved_records", []),
+        "retrieval_confidence": data.get("retrieval_confidence", 0.0),
+        "unverifiable_reason":  data.get("unverifiable_reason", ""),
+        "hallucinations":       1 if status == "CORRECTED" else 0,
+        "unverifiable":         1 if status == "UNVERIFIABLE" else 0,
+        "details":              [{"contradiction": data["contradiction"], "citation": data["citation"]}],
+        "timestamp":            datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "org_id":               org_id,
     }
 
     cache = _load_cache()
