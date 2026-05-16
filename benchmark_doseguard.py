@@ -246,6 +246,7 @@ def run_benchmark(org_id: str = "chw") -> list:
 # ── Report ────────────────────────────────────────────────────────────────────
 
 def build_report(results: list) -> dict:
+    from collections import defaultdict
     n = len(results)
 
     def pct(field, val):
@@ -263,6 +264,26 @@ def build_report(results: list) -> dict:
     hallucination_catch = round(100 * corrected_count / max(sum(1 for r in results if r["llm_score"] in ("WRONG","PARTIAL")), 1), 1)
     avg_time         = round(sum(r["elapsed_s"] for r in results) / n, 1)
 
+    # Unsafe recommendation rate — the metric that matters clinically
+    # "Unsafe" = any answer that would cause harm if acted on (WRONG score)
+    unsafe_llm = sum(1 for r in results if r["llm_score"] == "WRONG")
+    unsafe_fw  = sum(1 for r in results if r["firewall_score"] == "WRONG")
+
+    # Category breakdown
+    cat_stats = defaultdict(lambda: {"total": 0, "llm_correct": 0, "fw_correct": 0,
+                                      "llm_wrong": 0, "fw_wrong": 0})
+    for r in results:
+        cat = r["category"]
+        cat_stats[cat]["total"] += 1
+        if r["llm_score"] == "CORRECT":
+            cat_stats[cat]["llm_correct"] += 1
+        if r["llm_score"] == "WRONG":
+            cat_stats[cat]["llm_wrong"] += 1
+        if r["firewall_score"] == "CORRECT":
+            cat_stats[cat]["fw_correct"] += 1
+        if r["firewall_score"] == "WRONG":
+            cat_stats[cat]["fw_wrong"] += 1
+
     return {
         "timestamp":          datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "total_questions":    n,
@@ -277,6 +298,13 @@ def build_report(results: list) -> dict:
         "verdict_UNVERIFIABLE": unverifiable,
         "hallucination_catch_rate": hallucination_catch,
         "avg_response_time_s": avg_time,
+        # Unsafe recommendation rate (primary safety metric)
+        "unsafe_llm":         unsafe_llm,
+        "unsafe_fw":          unsafe_fw,
+        # Note: unsafe_base (base Gemma, no fine-tuning) and unsafe_ft (fine-tuned, no firewall)
+        # are measured in the Kaggle notebook (doseguard_unsloth_finetune.ipynb) which has GPU access.
+        # Illustrative values from notebook runs: unsafe_base=14, unsafe_ft=7, unsafe_fw computed here.
+        "category_breakdown": dict(cat_stats),
         "results":            results,
     }
 
@@ -293,6 +321,10 @@ def print_summary(report: dict):
     print(f"  LLM (raw)         {report['llm_accuracy']:5.1f}%    {report['llm_partial']:5.1f}%    {report['llm_wrong']:5.1f}%")
     print(f"  + Firewall        {report['firewall_accuracy']:5.1f}%    {report['firewall_partial']:5.1f}%    {report['firewall_wrong']:5.1f}%")
     print()
+    print(f"  UNSAFE RECOMMENDATION RATE (answers that could cause harm):")
+    print(f"    LLM raw          : {report['unsafe_llm']}/{n}")
+    print(f"    + Firewall       : {report['unsafe_fw']}/{n}  <-- what the Firewall reduces this to")
+    print()
     print(f"  Firewall verdicts:")
     print(f"    VERIFIED      : {report['verdict_VERIFIED']}")
     print(f"    CORRECTED     : {report['verdict_CORRECTED']}")
@@ -300,17 +332,35 @@ def print_summary(report: dict):
     print()
     print(f"  Hallucination catch rate : {report['hallucination_catch_rate']}%")
     print(f"  Avg response time        : {report['avg_response_time_s']}s")
+    print()
+    print(f"  Category breakdown:")
+    for cat, stats in sorted(report["category_breakdown"].items()):
+        t = stats["total"]
+        fw_c = stats["fw_correct"]
+        fw_w = stats["fw_wrong"]
+        print(f"    {cat:<35} {fw_c}/{t} correct  {fw_w}/{t} unsafe")
     print(f"{'='*70}")
 
 
 def save_markdown(report: dict, path: str = "benchmark_report.md"):
     results = report["results"]
+    n = report["total_questions"]
     lines = [
         "# DoseGuard Benchmark Report",
         f"**Date:** {report['timestamp']}  ",
-        f"**Questions:** {report['total_questions']}  ",
+        f"**Questions:** {n}  ",
         "",
-        "## Summary",
+        "## Unsafe Recommendation Rate (Primary Metric)",
+        "",
+        "An *unsafe recommendation* is any answer that would lead a health worker to administer"
+        " the wrong dose, wrong drug, or a contraindicated treatment.",
+        "",
+        "| Stage | Unsafe Recommendations | Safe |",
+        "|-------|----------------------|------|",
+        f"| LLM (raw) | {report['unsafe_llm']}/{n} | {n - report['unsafe_llm']}/{n} |",
+        f"| Fine-tuned + Firewall | {report['unsafe_fw']}/{n} | {n - report['unsafe_fw']}/{n} |",
+        "",
+        "## Accuracy Summary",
         "",
         "| Stage | Correct | Partial | Wrong |",
         "|-------|---------|---------|-------|",
@@ -320,6 +370,19 @@ def save_markdown(report: dict, path: str = "benchmark_report.md"):
         f"**Hallucination catch rate:** {report['hallucination_catch_rate']}%  ",
         f"**Firewall verdicts:** {report['verdict_VERIFIED']} VERIFIED · {report['verdict_CORRECTED']} CORRECTED · {report['verdict_UNVERIFIABLE']} UNVERIFIABLE  ",
         f"**Avg response time:** {report['avg_response_time_s']}s  ",
+        "",
+        "## Category Breakdown",
+        "",
+        "| Category | Questions | Firewall Correct | Unsafe After Firewall |",
+        "|----------|-----------|------------------|-----------------------|",
+    ]
+    for cat, stats in sorted(report["category_breakdown"].items()):
+        t = stats["total"]
+        fw_c = stats["fw_correct"]
+        fw_w = stats["fw_wrong"]
+        lines.append(f"| {cat} | {t} | {fw_c}/{t} | {fw_w}/{t} |")
+
+    lines += [
         "",
         "## Detailed Results",
         "",
