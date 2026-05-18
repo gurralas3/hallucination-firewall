@@ -1,7 +1,0 @@
-MEDICINE: Benzylpenicillin (Penicillin G)
-CATEGORY: Antibiotic
-INDICATIONS: Severe streptococcal infections, meningitis, syphilis, anthrax, neonatal infections.
-ADULT DOSE: 1.2–2.4g IV every 4–6 hours depending on severity.
-CHILD DOSE (neonatal meningitis): 50mg/kg every 12 hours for first week, then every 8 hours.
-CONTRAINDICATIONS: Penicillin allergy.
-NOTES: IV or IM only — not for oral use. First-line for neonatal sepsis in resource-limited settings.

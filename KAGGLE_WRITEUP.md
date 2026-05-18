@@ -1,92 +1,77 @@
-# DoseGuard — Post-Generation Verification for Clinical LLM Safety
+# Hallucination Firewall — Post-Generation Verification for Enterprise AI
 
-**Gemma 4 Good Hackathon | Safety & Trust · Health & Sciences · Ollama · Unsloth**
-
----
-
-## The Moment That Started This
-
-In early 2025, I had a red, itchy eye for two days.
-
-I photographed the medicine shelf at CVS and asked an AI assistant what to use. It confidently recommended **Visine (Tetrahydrozoline)** — a vasoconstrictor that only reduces redness temporarily.
-
-The correct WHO first-line treatment for allergic conjunctivitis is **Ketotifen** — an antihistamine that treats the actual allergic cause.
-
-The AI sounded confident. The answer was wrong. I would have trusted it.
+**Gemma 4 Good Hackathon | Safety & Trust**
 
 ---
 
-## The Bigger Problem
+## The Problem
 
-Scaled to a rural clinic, that same failure pattern becomes life-threatening.
+Enterprise AI deployments across hospitals, legal systems, and financial institutions share one critical vulnerability: LLMs generate confident, plausible-sounding answers that are factually wrong.
 
-A beginner community health worker consults an AI about a 10 kg child's Amoxicillin dose for pneumonia. The AI confidently returns **500 mg twice daily**. The correct WHO dose is **160 mg twice daily**. That is a 3× overdose.
+A hospital system asks who is treating a patient. The AI invents a doctor's name.
+A legal team asks about a Supreme Court case outcome. The AI fabricates a vote count.
+A bank asks about a client's account balance. The AI returns a convincing but wrong figure.
 
-**LLMs hallucinate medical dosing at rates of 43–67%.** Fine-tuning reduces this — it does not eliminate it. DoseGuard is the safety layer that catches what fine-tuning misses.
+Most safeguards focus on what goes *into* the model — retrieval, prompt conditioning, grounding. Far fewer systems independently audit the final answer before it reaches the user.
+
+> **The Hallucination Firewall audits every AI-generated answer before delivery.**
 
 ---
 
 ## One Sentence
 
-> **DoseGuard verifies AI-generated medical answers before a person acts on them.**
+> A post-generation verification layer that intercepts LLM answers, checks them against authoritative records, and either confirms, corrects, or blocks them before the user sees the response.
 
 ---
 
-## Why Retrieval Alone Is Not Enough
-
-Standard RAG systems retrieve relevant documents before generation. This is necessary — but not sufficient.
-
-An LLM can:
-- Retrieve the correct WHO dosing guideline
-- Still generate the wrong dose in its final answer
-- Merge details from two different medicines
-- Introduce unsupported claims during the generation process itself
-
-RAG provides context. It does not audit the output.
+## Why RAG Alone Is Not Enough
 
 ```
 Standard RAG:
   User → Retrieve docs → LLM generates → User receives answer  ← NO VERIFICATION
 
-DoseGuard:
+Hallucination Firewall:
   User → Retrieve docs → LLM generates → Firewall audits → Verified answer
 ```
 
-DoseGuard adds a second pass **after generation**: the Hallucination Firewall — a post-generation verification layer — audits the final answer itself against retrieved WHO records before the response reaches the user.
+An LLM can retrieve the correct record and still generate the wrong answer. It can merge details from two records. It can introduce unsupported claims mid-sentence. RAG provides context. The Firewall verifies the final claim.
 
-Retrieval provides context. The Firewall verifies the final claim.
+---
+
+## Why Verification Instead of Just Better Prompting?
+
+Prompting influences generation probabilistically. Verification evaluates the final claim deterministically against retrieved evidence.
+
+The generator optimizes for producing plausible language. The verifier optimizes for contradiction detection against retrieved records. **Separating these objectives reduces the likelihood that fluent hallucinations pass unchecked.**
+
+The Hallucination Firewall treats every LLM output as untrusted until it passes independent evidence review.
 
 ---
 
 ## The Architecture
 
 ```
-User Question (text or medicine photo)
-          │
-          ▼
-Fine-tuned Gemma 4  [Unsloth LoRA · 505 WHO Q&A pairs · Kaggle T4 GPU]
-          │
-          ▼  LLM generates answer  →  may be wrong
-          │
-          ▼
-FAISS Semantic Search  [all-MiniLM-L6-v2 · 53 WHO medicines · top-3 retrieval]
-          │
-          ▼
+User Question
+      │
+      ▼
+Gemma 4 generates answer  [temperature 1.0 — confident, may hallucinate]
+      │
+      ▼
+FAISS Semantic Search  [all-MiniLM-L6-v2 · top-3 nearest records from org store]
+      │
+      ▼
 Hallucination Firewall  [Gemma 4 · temperature 0.1 · structured JSON verdict]
-Compares generated answer against retrieved WHO records
-          │
-     ┌────┴─────────────────────┐
-     │                          │
-VERIFIED                  CORRECTED              UNVERIFIABLE
-Pass through              Replace with           Escalate to clinician
-with citation             WHO-correct answer     — safer than guessing
+Compares generated answer against retrieved records
+      │
+ ┌────┴──────────────────────┐
+ │                           │
+VERIFIED               CORRECTED            UNVERIFIABLE
+Pass through           Replace with         Block — escalate
+with citation          record-grounded      to human review
+                       answer
 ```
 
-### The Failure Flow in One Line
-
-```
-LLM → Wrong dose → Firewall intercepts → WHO-corrected output with citation
-```
+**Generate → Retrieve → Verify**
 
 ---
 
@@ -94,92 +79,59 @@ LLM → Wrong dose → Firewall intercepts → WHO-corrected output with citatio
 
 | Verdict | When triggered | Action |
 |---------|---------------|--------|
-| ✅ VERIFIED | Answer matches WHO records | Deliver with citation |
-| 🔒 CORRECTED | Answer contradicts WHO records | Replace with correct answer + explain error |
-| ⚠ UNVERIFIABLE | WHO records absent or retrieval confidence below threshold | Block and escalate to clinician |
+| ✅ VERIFIED | Answer matches retrieved records | Deliver with citation |
+| 🔒 CORRECTED | Answer contradicts retrieved records | Replace with grounded answer |
+| ⚠ UNVERIFIABLE | Retrieval similarity below threshold | Block and escalate |
 
-### When UNVERIFIABLE Is Triggered
+> **A system that always answers is more dangerous than one that sometimes refuses.**
 
-UNVERIFIABLE is not a failure state — it is a deliberate safety feature:
-
-- Top FAISS similarity score falls below the retrieval confidence threshold
-- Retrieved WHO records do not cover the queried medicine or indication
-- Conflicting signals across top-3 retrieved records
-- Verification confidence score below 0.5
-
-**This is a key architectural decision:** a system that always answers is more dangerous than a system that sometimes refuses.
+UNVERIFIABLE is a deliberate safety feature — when FAISS similarity falls below threshold (cosine similarity < 0.5), the Firewall refuses to guess. Escalation to a human reviewer is the correct output.
 
 ---
 
-## The 3-Way Benchmark
+## Three Live Domains
 
-> Fine-tuning alone is insufficient. Here is the proof.
+| Domain | Example question | Hallucination caught |
+|--------|-----------------|----------------------|
+| **Hospital** | "Who is treating Ronald Park?" | Fabricated doctor name |
+| **Legal** | "Who was Chief Justice in Draper v. United States?" | Invented case outcome |
+| **Finance** | "What is Paul Watts's account balance?" | Made-up account details |
 
-### By Accuracy
-
-| Stage | Correct | Partial | Wrong |
-|-------|---------|---------|-------|
-| Base Gemma 4 | — | — | — |
-| Fine-tuned (Unsloth LoRA) | — | — | — |
-| Fine-tuned + Firewall | — | — | — |
-
-*Run `python benchmark_doseguard.py` to populate with live results.*
-
-### By Unsafe Recommendation Rate (the metric that matters)
-
-Most AI projects report accuracy. DoseGuard reports something more meaningful:
-
-> **Unsafe Recommendation Rate** — the count of answers that, if acted on, would cause a health worker to administer the wrong dose, wrong drug, or a contraindicated treatment.
-
-A system that is 80% accurate but wrong on child dosing is not 80% safe. It is dangerous. Abstract accuracy obscures this. Unsafe recommendation rate makes it visible.
-
-| Stage | Unsafe Clinical Recommendations |
-|-------|--------------------------------|
-| Base Gemma 4 | —/20 |
-| Fine-tuned | —/20 |
-| Fine-tuned + Firewall | —/20 |
-
-*Run `python benchmark_doseguard.py` to populate with live results.*
-
-### Benchmark Coverage (20 Questions, 7 Categories)
-
-| Category | Questions | Example |
-|----------|-----------|---------|
-| Antibiotics — child dosing | 4 | Amoxicillin 8kg, 10kg; Doxycycline contraindication |
-| Antimalarials | 3 | Severe malaria treatment; Chloroquine resistance; AL weight-band |
-| Maternal health | 3 | Magnesium Sulfate loading; PPH without refrigeration; eclampsia antidote |
-| Contraindications | 4 | Aspirin in children; Metformin in kidney failure; Lisinopril in pregnancy |
-| Emergency medicines | 2 | Adrenaline dose; Dextrose for hypoglycaemia |
-| Eye medicines | 2 | Ketotifen vs Visine; Chloramphenicol indication |
-| Antiretroviral / TB | 2 | Isoniazid supplement; Zidovudine PMTCT |
+Each domain has its own FAISS index, its own document store, and its own verifier role — the Firewall adapts its verification lens to the domain it is checking.
 
 ---
 
-## What DoseGuard Is (and Is Not)
+## Live Examples
 
-| DoseGuard is | DoseGuard is not |
-|---|---|
-| A verification layer that reduces unsafe outputs | A replacement for clinical judgement |
-| A tool that surfaces uncertainty explicitly | A system that solves hallucination |
-| Designed for educational guidance | Certified for clinical deployment |
-| A post-generation audit of LLM answers | A guarantee of correctness |
+### Hospital
+```
+Question : Who is the doctor treating Ronald Park?
+LLM said : Dr. Emily Chen is treating Ronald Park.
 
-The appropriate framing: DoseGuard **reduces** unsafe recommendations and **surfaces** uncertainty. It does not eliminate error. Every output carries a disclaimer to consult a qualified clinician.
+🔒 CORRECTED
+Record   : Ronald Park is assigned to Dr. James Osei.
+Error    : LLM fabricated a doctor name not present in any hospital record.
+```
 
----
+### Legal
+```
+Question : Who was the Chief Justice in Draper v. United States?
+LLM said : Chief Justice Warren Burger presided, 7-2 decision.
 
-## Known Limitations
+🔒 CORRECTED
+Record   : Chief Justice Earl Warren. Decision was unanimous.
+Error    : Wrong Chief Justice and wrong vote count.
+```
 
-Honest evaluation includes failures.
+### Finance
+```
+Question : What is Paul Watts's account balance?
+LLM said : Paul Watts has a balance of $24,310.
 
-DoseGuard still struggles when:
-
-- **Symptoms are vague** — "my child is not well" cannot be matched to a specific WHO record
-- **Multiple medicines have overlapping indications** — retrieval may surface the wrong drug first
-- **WHO EML coverage is absent** — medicines not on the Essential Medicines List return UNVERIFIABLE, which is correct but unhelpful
-- **Weight-based calculations involve interpolation** — WHO records give fixed weight bands; a 13 kg child falls between the 10 kg and 15 kg entries
-
-In these cases the Firewall returns UNVERIFIABLE or a low-confidence correction. **This is the intended behaviour** — it is safer to escalate than to guess.
+🔒 CORRECTED
+Record   : Paul Watts — Savings Account — $8,750.
+Error    : LLM invented a balance not in any account record.
+```
 
 ---
 
@@ -187,85 +139,41 @@ In these cases the Firewall returns UNVERIFIABLE or a low-confidence correction.
 
 | Component | Description |
 |-----------|-------------|
-| `sample_docs/who_medicines.txt` | 53 WHO Essential Medicines — adult/child dosing by weight, contraindications, clinical notes |
-| `training_data/who_qa_pairs.json` | 505 WHO Q&A training pairs across 17 medicine categories |
-| `kaggle_notebook/doseguard_unsloth_finetune.ipynb` | Unsloth LoRA fine-tuning + 3-way benchmark on Kaggle T4 GPU |
-| `chw_processor.py` | FAISS index builder — all-MiniLM-L6-v2 embeddings |
+| `document_store.py` | FAISS index builder — all-MiniLM-L6-v2 · per-org isolation |
 | `firewall.py` | Hallucination Firewall — generate + retrieve + verify + verdict |
-| `photo_verify.py` | Gemma 4 vision — reads medicine box label, runs firewall |
-| `benchmark_doseguard.py` | 20-question benchmark with unsafe recommendation rate metric |
-| `app.py` | Streamlit UI — Quick Check + Clinical Check + Photo Check + Audit Log |
-| `Modelfile` | Ollama deployment — offline rural clinic mode |
+| `gemini_client.py` | Gemma 4 client — generate + streaming |
+| `app.py` | Streamlit UI — domain selector · evidence expander · audit log |
+| `setup_domains.py` | One-command domain setup — indexes all org documents |
+| `sample_docs/` | Hospital, legal, and finance document stores |
 
 ---
 
-## The Two Real Scenarios DoseGuard Addresses
+## The Retrieval Confidence Layer
 
-### Scenario 1 — CVS / Pharmacy (Photo Check)
-User photographs a Visine bottle. Gemma 4 reads the label. Firewall checks WHO records.
+Every response surfaces the retrieved records with similarity scores. When the Firewall returns UNVERIFIABLE, the UI shows exactly why — the best matching record was only X% similar, below the verification threshold.
 
-```
-Extracted  : Visine Advanced · Tetrahydrozoline HCl 0.05%
-Label claim: Redness Relief Eye Drops
-Question   : Is this the right treatment for itchy red eyes from allergies?
-
-🔒 CORRECTED
-WHO record : Ketotifen is the first-line antihistamine for allergic conjunctivitis.
-             Tetrahydrozoline reduces redness only — it does not treat allergy.
-Error found: Visine does not treat allergic cause; recommending it for allergy is incorrect.
-```
-
-### Scenario 2 — Rural Clinic (Clinical Check)
-Health worker asks about Amoxicillin dose for a 10 kg child.
-
-```
-Query   : Correct dose of Amoxicillin for 10 kg child with pneumonia?
-LLM said: 500 mg twice daily
-
-🔒 CORRECTED
-WHO dose : 200 mg twice daily (40 mg/kg/day in two divided doses) for 5 days
-Citation : CHILD DOSE (under 5, pneumonia): 40mg/kg/day in two divided doses for 5 days.
-Error    : LLM returned adult dose. 500 mg twice daily is a 2.5× overdose for a 10 kg child.
-```
+This gives operators full transparency: not just a verdict, but the evidence behind it.
 
 ---
 
-## Two Deployment Modes
+## What the Firewall Is (and Is Not)
 
-### Online — Google AI Studio (Gemma 4)
-Connected clinics and pharmacies. Full Gemma 4 capability.
-
-### Offline — Ollama (GGUF)
-Rural clinics with no internet. Deploy with:
-```bash
-ollama create doseguard -f Modelfile
-ollama run doseguard "Amoxicillin dose for 10kg child with pneumonia?"
-```
-
-The Misoprostol parallel: Misoprostol is preferred over Oxytocin in rural settings because it needs no refrigeration. DoseGuard runs offline for the same reason — infrastructure cannot be a prerequisite for safe medicine guidance.
-
----
-
-## Prize Track Alignment
-
-| Track | Alignment |
-|-------|-----------|
-| **Safety & Trust** | Core thesis — post-generation verification for reliable, grounded AI |
-| **Health & Sciences** | WHO Essential Medicines, rural clinic deployment, maternal/child/TB/ARV coverage |
-| **Ollama** | GGUF export, Modelfile, offline deployment — no internet, no cloud |
-| **Unsloth** | LoRA fine-tuning on Kaggle T4, 505 WHO pairs, published benchmark |
+| The Firewall is | The Firewall is not |
+|---|---|
+| A verification layer that reduces hallucinated outputs | A guarantee of correctness |
+| A tool that surfaces uncertainty explicitly | A replacement for human review |
+| Domain-agnostic — adapts to any org document store | A solution to all LLM failures |
+| A post-generation audit before user delivery | A prompt engineering technique |
 
 ---
 
 ## The Broader Argument
 
-High-stakes LLM systems benefit from a verification layer between generation and delivery.
+Every organisation deploying LLMs needs a verification layer between generation and delivery. The Hallucination Firewall demonstrates this pattern across three domains. The same architecture applies to any domain where an incorrect AI answer causes irreversible harm — clinical dosing, legal rulings, financial records, emergency protocols.
 
-DoseGuard demonstrates this pattern in medicine. The same architecture applies to any domain where an incorrect AI answer causes irreversible harm — legal dosing, drug interactions, emergency protocols.
+The contribution is not just an application. It is a reusable verification pattern:
 
-The contribution is not just a medicine app. It is a reusable verification pattern:
-
-> **Generate → Retrieve → Verify → Output**
+> **Generate → Retrieve → Verify**
 
 with explicit handling of the case where verification cannot confirm safety.
 
@@ -273,14 +181,12 @@ with explicit handling of the case where verification cannot confirm safety.
 
 ## Closing
 
-Most AI healthcare projects ask: *"What can AI do for health?"*
+Most AI safety work asks: *"How do we make the model generate better answers?"*
 
-DoseGuard asks: *"How can AI be trusted when mistakes cost lives?"*
+The Hallucination Firewall asks: *"How do we catch the wrong answers before they reach anyone?"*
 
-Fine-tuning is part of the answer.
-The Hallucination Firewall is the other part.
+> **The question is no longer whether AI can answer. The question is whether you can trust the answer it gives.**
 
 ---
 
-*WHO-sourced educational information only. Always consult a qualified clinician before administering any medicine.*
-*Built with Gemma 4 · Unsloth · FAISS · Ollama · WHO Essential Medicines List*
+*Built with Gemma 4 · FAISS · Sentence Transformers · Streamlit*

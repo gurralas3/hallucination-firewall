@@ -1,7 +1,0 @@
-MEDICINE: Misoprostol
-CATEGORY: Uterotonic
-INDICATIONS: Prevention of PPH when oxytocin unavailable. Medical management of incomplete abortion.
-PPH PREVENTION DOSE: 600mcg sublingually immediately after delivery — use when oxytocin not available.
-INCOMPLETE ABORTION: 400–800mcg sublingually or vaginally.
-CONTRAINDICATIONS: Prior caesarean section (risk of uterine rupture with induction). Allergy to prostaglandins.
-NOTES: Heat-stable alternative to oxytocin — critical for rural settings without refrigeration. Causes shivering and fever — normal.

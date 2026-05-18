@@ -1,7 +1,0 @@
-MEDICINE: Amlodipine
-CATEGORY: Antihypertensive (Calcium Channel Blocker)
-INDICATIONS: Hypertension. Stable angina.
-ADULT DOSE: 5mg once daily. Increase to 10mg if needed after 4 weeks.
-CHILD DOSE (6–17 years): 2.5–5mg once daily.
-CONTRAINDICATIONS: Severe hypotension. Cardiogenic shock. Unstable angina.
-NOTES: Long-acting — once daily dosing. Ankle swelling common. Do not stop abruptly.

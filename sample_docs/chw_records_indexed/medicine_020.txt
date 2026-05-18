@@ -1,7 +1,0 @@
-MEDICINE: Glibenclamide (Glyburide)
-CATEGORY: Antidiabetic
-INDICATIONS: Type 2 diabetes when Metformin insufficient or not tolerated.
-ADULT DOSE: 2.5–5mg once daily with breakfast. Maximum 15mg/day.
-CHILD DOSE: Not recommended.
-CONTRAINDICATIONS: Type 1 diabetes. Severe kidney or liver disease. Pregnancy (use insulin instead).
-NOTES: Risk of hypoglycaemia — monitor blood glucose. Elderly patients particularly at risk.

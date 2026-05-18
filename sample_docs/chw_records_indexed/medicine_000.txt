@@ -1,8 +1,0 @@
-MEDICINE: Amoxicillin
-CATEGORY: Antibiotic
-INDICATIONS: Bacterial infections — pneumonia, ear infections, urinary tract infections, skin infections, tonsillitis.
-ADULT DOSE: 250–500mg every 8 hours orally for 5–7 days. Severe: 875mg every 12 hours.
-CHILD DOSE (under 5, pneumonia): 40mg/kg/day in two divided doses for 5 days.
-CHILD DOSE (general, by weight): 8kg = 160mg twice daily. 10kg = 200mg twice daily. 15kg = 300mg twice daily. 20kg = 400mg twice daily.
-CONTRAINDICATIONS: Penicillin allergy. Caution in mononucleosis.
-NOTES: First-line WHO treatment for childhood pneumonia. Take full course even if feeling better.

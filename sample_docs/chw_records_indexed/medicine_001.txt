@@ -1,7 +1,0 @@
-MEDICINE: Amoxicillin-Clavulanate (Co-Amoxiclav)
-CATEGORY: Antibiotic
-INDICATIONS: Infections resistant to plain Amoxicillin — sinusitis, diabetic foot, animal bites, skin abscesses.
-ADULT DOSE: 625mg every 8 hours or 1g every 12 hours for 5–7 days.
-CHILD DOSE: 40mg/kg/day of amoxicillin component in divided doses every 8 hours.
-CONTRAINDICATIONS: Penicillin allergy. Liver disease. Prior jaundice from this medicine.
-NOTES: Stronger than plain Amoxicillin. Higher GI side effects — take with food.

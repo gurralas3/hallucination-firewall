@@ -1,8 +1,0 @@
-MEDICINE: Magnesium Sulfate
-CATEGORY: Anticonvulsant / Uterotonic
-INDICATIONS: Prevention and treatment of eclampsia. Severe pre-eclampsia.
-LOADING DOSE: 4g IV slowly over 5–20 minutes, PLUS 5g IM in each buttock (10g IM total).
-MAINTENANCE DOSE: 5g IM every 4 hours OR 1–2g/hour IV infusion.
-STOP IF: Respiratory rate below 16/min. Absent patellar reflex. Urine output below 25ml/hour.
-CONTRAINDICATIONS: Respiratory failure. Absent tendon reflexes. Severe kidney impairment.
-NOTES: Antidote is Calcium Gluconate 1g IV — always have available. First-line for eclampsia globally.

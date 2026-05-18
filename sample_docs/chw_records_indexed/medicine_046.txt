@@ -1,8 +1,0 @@
-MEDICINE: Adrenaline (Epinephrine)
-CATEGORY: Emergency
-INDICATIONS: Anaphylaxis. Cardiac arrest. Severe asthma unresponsive to salbutamol.
-ANAPHYLAXIS DOSE: 0.5mg (0.5ml of 1:1000) IM into outer thigh. Repeat every 5 minutes if no improvement.
-CHILD DOSE (anaphylaxis): 0.01mg/kg IM (maximum 0.5mg). Under 6 years: 0.15mg. 6–12 years: 0.3mg.
-CARDIAC ARREST: 1mg IV every 3–5 minutes during resuscitation.
-CONTRAINDICATIONS: No absolute contraindications in anaphylaxis — life-threatening emergency.
-NOTES: IM injection into outer thigh is faster and safer than subcutaneous. Auto-injectors (EpiPen) for community use.

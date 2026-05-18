@@ -1,7 +1,0 @@
-MEDICINE: Cotrimoxazole (Trimethoprim-Sulfamethoxazole)
-CATEGORY: Antibiotic
-INDICATIONS: UTI, PCP pneumonia in HIV patients, daily HIV prophylaxis in children.
-ADULT DOSE: 960mg twice daily for UTI (3–5 days). PCP prophylaxis: 960mg daily.
-CHILD DOSE: 24mg/kg/day in two divided doses. HIV prophylaxis: 240mg daily from 6 weeks of age.
-CONTRAINDICATIONS: Sulfonamide allergy. Severe kidney or liver impairment. Neonates under 6 weeks.
-NOTES: Essential for HIV-positive children as daily prophylaxis. Do not use in newborns under 6 weeks.

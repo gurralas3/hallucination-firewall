@@ -1,7 +1,0 @@
-MEDICINE: Zidovudine (AZT)
-CATEGORY: Antiretroviral
-INDICATIONS: HIV treatment (as part of combination regimen). Prevention of mother-to-child transmission.
-ADULT DOSE: 300mg twice daily (always in combination with other ARVs).
-CHILD DOSE: 180–240mg/m² twice daily. Neonates (PMTCT): 4mg/kg twice daily for 6 weeks.
-CONTRAINDICATIONS: Severe anaemia (Hb below 7.5g/dL). Neutropenia.
-NOTES: Never use as monotherapy. Always combined. Monitor full blood count — causes anaemia.

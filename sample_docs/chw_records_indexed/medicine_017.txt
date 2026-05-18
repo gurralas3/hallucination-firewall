@@ -1,7 +1,0 @@
-MEDICINE: Folic Acid
-CATEGORY: Nutritional
-INDICATIONS: Prevention of neural tube defects. Megaloblastic anaemia. Supplement in pregnancy.
-ADULT DOSE: Anaemia: 5mg daily for 4 months. Pregnancy prevention: 0.4mg daily before and during first trimester.
-CHILD DOSE: 5mg daily for megaloblastic anaemia.
-CONTRAINDICATIONS: Undiagnosed anaemia — can mask B12 deficiency.
-NOTES: All women of childbearing age should take 0.4mg folic acid daily ideally before conception.

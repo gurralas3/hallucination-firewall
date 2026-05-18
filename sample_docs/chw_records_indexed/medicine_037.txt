@@ -1,7 +1,0 @@
-MEDICINE: Mebendazole
-CATEGORY: Anthelmintic
-INDICATIONS: Intestinal worms — roundworm, whipworm, hookworm, pinworm.
-ADULT DOSE: 100mg twice daily for 3 days OR 500mg single dose.
-CHILD DOSE (over 1 year): Same as adult.
-CONTRAINDICATIONS: Under 1 year. Pregnancy.
-NOTES: Alternative to Albendazole. Less absorbed — acts locally in gut. Safe and well-tolerated.

@@ -1,7 +1,0 @@
-MEDICINE: Insulin (Regular / NPH)
-CATEGORY: Antidiabetic
-INDICATIONS: Type 1 diabetes. Type 2 diabetes not controlled by oral agents. Gestational diabetes. Diabetic emergencies.
-ADULT DOSE: Highly individualised — guided by blood glucose monitoring. Typically 0.5–1 unit/kg/day total.
-CHILD DOSE: 0.5–1 unit/kg/day, adjusted by blood glucose.
-CONTRAINDICATIONS: Hypoglycaemia (current episode).
-NOTES: Store in refrigerator. Never freeze. Opened vials stable at room temperature for 28 days.

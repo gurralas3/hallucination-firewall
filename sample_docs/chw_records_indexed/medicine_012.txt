@@ -1,8 +1,0 @@
-MEDICINE: Ibuprofen
-CATEGORY: NSAID / Analgesic
-INDICATIONS: Mild to moderate pain, fever, inflammation.
-ADULT DOSE: 200–400mg every 4–6 hours. Maximum 1200mg per day (OTC). Up to 2400mg/day under supervision.
-CHILD DOSE (over 6 months): 5–10mg/kg every 6–8 hours. Maximum 30mg/kg/day.
-CHILD DOSE: NOT recommended under 6 months.
-CONTRAINDICATIONS: Under 6 months. Peptic ulcer. Kidney impairment. Aspirin allergy. Third trimester pregnancy.
-NOTES: Take with food to reduce stomach irritation. Avoid in dehydrated children — risk of kidney injury.

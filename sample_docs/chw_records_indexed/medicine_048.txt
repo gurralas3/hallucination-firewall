@@ -1,8 +1,0 @@
-MEDICINE: Dextrose 50% (Glucose)
-CATEGORY: Emergency
-INDICATIONS: Hypoglycaemia (low blood sugar). Coma of unknown cause.
-ADULT DOSE: 50ml of 50% dextrose IV (25g glucose). Repeat if no response.
-CHILD DOSE: 2ml/kg of 10% dextrose IV.
-NEONATES: 2ml/kg of 10% dextrose IV slowly.
-CONTRAINDICATIONS: Hyperglycaemia. Intracerebral haemorrhage (use with caution).
-NOTES: Check blood glucose before administering if possible. 10% solution preferred in children — less irritating to veins.

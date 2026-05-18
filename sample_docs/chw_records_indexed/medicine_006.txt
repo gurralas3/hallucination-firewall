@@ -1,8 +1,0 @@
-MEDICINE: Gentamicin
-CATEGORY: Antibiotic
-INDICATIONS: Severe bacterial infections, neonatal sepsis, pyelonephritis, endocarditis.
-ADULT DOSE: 3–5mg/kg/day IV or IM once daily.
-CHILD DOSE (neonates, first week): 5mg/kg every 36 hours.
-CHILD DOSE (infants and children): 7.5mg/kg once daily.
-CONTRAINDICATIONS: Kidney impairment. History of hearing loss from aminoglycosides.
-NOTES: Monitor kidney function and hearing with prolonged use. Risk of permanent hearing loss at high doses.

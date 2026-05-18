@@ -1,7 +1,0 @@
-MEDICINE: Artesunate (IV)
-CATEGORY: Antimalarial
-INDICATIONS: Severe Plasmodium falciparum malaria — the only WHO-recommended treatment for severe malaria.
-ADULT DOSE: 2.4mg/kg IV at 0h, 12h, 24h, then once daily.
-CHILD DOSE (under 20kg): 3mg/kg IV at same intervals.
-CONTRAINDICATIONS: Known hypersensitivity to artemisinins.
-NOTES: Replaces quinine as first-line for severe malaria per WHO 2023 guidelines. Oral treatment must follow IV course.

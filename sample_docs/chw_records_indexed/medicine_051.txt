@@ -1,7 +1,0 @@
-MEDICINE: Chloramphenicol Eye Ointment
-CATEGORY: Antibiotic Eye Treatment
-INDICATIONS: Bacterial conjunctivitis (pink eye with discharge). Eye infections.
-ADULT DOSE: Small amount applied inside lower eyelid 3–4 times daily for 5 days.
-CHILD DOSE: Same as adult. Safe from birth for bacterial eye infections.
-CONTRAINDICATIONS: Allergy to chloramphenicol. Viral or fungal eye infections.
-NOTES: For bacterial infection — not viral (viral does not need antibiotic). Blurs vision temporarily after application.

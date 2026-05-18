@@ -1,8 +1,0 @@
-MEDICINE: Zinc Sulfate
-CATEGORY: Nutritional / Antidiarrhoeal
-INDICATIONS: Adjunct treatment for childhood diarrhoea. Zinc deficiency.
-CHILD DOSE (under 6 months): 10mg daily for 10–14 days.
-CHILD DOSE (6 months and above): 20mg daily for 10–14 days.
-ADULT DOSE: 20mg daily for zinc deficiency.
-CONTRAINDICATIONS: None significant at therapeutic doses.
-NOTES: Always give alongside ORS for childhood diarrhoea. Reduces duration and severity.

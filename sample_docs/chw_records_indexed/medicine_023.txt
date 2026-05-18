@@ -1,7 +1,0 @@
-MEDICINE: Lisinopril
-CATEGORY: Antihypertensive (ACE Inhibitor)
-INDICATIONS: Hypertension. Heart failure. Diabetic nephropathy.
-ADULT DOSE: 5–10mg once daily. Maintenance 10–40mg/day.
-CHILD DOSE (6 years and above): 0.07mg/kg once daily, maximum 5mg initially.
-CONTRAINDICATIONS: Pregnancy (teratogenic). Angioedema history. Bilateral renal artery stenosis. High potassium.
-NOTES: Dry cough in 10–15% of patients — switch to ARB if intolerable. Monitor kidney function and potassium.

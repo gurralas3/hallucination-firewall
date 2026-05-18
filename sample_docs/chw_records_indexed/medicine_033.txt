@@ -1,7 +1,0 @@
-MEDICINE: Amitriptyline
-CATEGORY: Antidepressant / Neuropathic pain
-INDICATIONS: Depression. Neuropathic pain. Migraine prevention. Fibromyalgia.
-ADULT DOSE: Depression: 25mg at night, increase to 75–150mg/day. Neuropathic pain: 10–25mg at night.
-CHILD DOSE: Not recommended under 12 years for depression.
-CONTRAINDICATIONS: Recent myocardial infarction. Arrhythmia. MAO inhibitor use within 14 days.
-NOTES: Sedating — take at night. Anticholinergic effects: dry mouth, constipation, urinary retention. Overdose is dangerous.

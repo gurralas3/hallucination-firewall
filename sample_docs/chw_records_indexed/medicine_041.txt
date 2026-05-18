@@ -1,8 +1,0 @@
-MEDICINE: Nevirapine
-CATEGORY: Antiretroviral
-INDICATIONS: HIV treatment. Single-dose PMTCT at onset of labour.
-ADULT DOSE: 200mg daily for 14 days then 200mg twice daily (lead-in period essential).
-CHILD DOSE: 4mg/kg once daily for 14 days then 7mg/kg twice daily.
-PMTCT DOSE: 200mg single dose at onset of labour.
-CONTRAINDICATIONS: Moderate to severe liver disease. CD4 above 250 (women) or 400 (men) — higher rash/hepatitis risk.
-NOTES: Lead-in period mandatory to reduce rash. Stop immediately if severe rash or liver toxicity.

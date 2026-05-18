@@ -1,7 +1,0 @@
-MEDICINE: Prednisolone
-CATEGORY: Corticosteroid
-INDICATIONS: Severe asthma, allergic reactions, inflammatory conditions, adrenal insufficiency.
-ADULT DOSE: Severe asthma: 40–50mg once daily for 5 days. Anti-inflammatory: 5–60mg/day depending on condition.
-CHILD DOSE (asthma): 1–2mg/kg/day (maximum 40mg) for 3–5 days.
-CONTRAINDICATIONS: Systemic fungal infection. Live vaccines during high-dose therapy.
-NOTES: Short courses (under 2 weeks) — can stop without tapering. Long courses require gradual reduction to avoid adrenal crisis.

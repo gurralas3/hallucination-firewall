@@ -1,8 +1,0 @@
-MEDICINE: Isoniazid (INH)
-CATEGORY: Antituberculosis
-INDICATIONS: Tuberculosis (combination). TB preventive therapy in high-risk contacts.
-ADULT DOSE (TB treatment): 300mg once daily.
-CHILD DOSE: 10mg/kg once daily (maximum 300mg).
-TB PREVENTIVE DOSE: 300mg daily for 6 months (adults). 10mg/kg daily for 6 months (children).
-CONTRAINDICATIONS: Active liver disease. History of isoniazid hepatitis.
-NOTES: Give with Pyridoxine (Vitamin B6) 25mg daily to prevent peripheral neuropathy. Monitor liver function.
